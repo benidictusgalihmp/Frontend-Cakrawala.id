@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cakrawala.Views.LoginPage"
              Title="Login">
-    <StackLayout>
-        <Label Text="Welcome to Xamarin.Forms!"
-            VerticalOptions="CenterAndExpand" 
-            HorizontalOptions="CenterAndExpand" />
+    <StackLayout Margin="20" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300">
+        <Label Text="Login ke Cakrawala" FontSize="Large" HorizontalTextAlignment="Center" Margin="0,0,0,30"/>
+        <FlexLayout Direction="Column" JustifyContent="Center" AlignContent="Center">
+            <Label>Email</Label>
+            <Editor x:Name="email"/>
+        </FlexLayout>
+        <FlexLayout Direction="Column">
+            <Label>Password</Label>
+            <Editor/>
+        </FlexLayout>
+        <Button x:Name="LoginButton" Text="Login" Clicked="LoginButton_Clicked"></Button>
+        <Button Text="Login dengan Google"></Button>
     </StackLayout>
 </ContentPage>
