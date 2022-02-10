@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cakrawala.Views.DashboardPage">
+    <ContentPage.Content>
+        <StackLayout Margin="15" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="300">
+            <Label x:Name="MainLabel" Text="Selamat Datang, " FontSize="Large" HorizontalTextAlignment="Center" Margin="0,0,0,30"/>
+            <FlexLayout Direction="Column" JustifyContent="Center" AlignContent="Center">
+                <Label FontSize="Small">Credit</Label>
+                <Frame BorderColor="Gray">
+                    <Label FontSize="Medium">Rp 999 999 999</Label>
+                </Frame>
+            </FlexLayout>
+            <FlexLayout Direction="Column">
+                <FlexLayout Direction="Row" JustifyContent="SpaceBetween" HeightRequest="30">
+                    <Label FontSize="Small" FlexLayout.Grow="1">Lvl 99</Label>
+                    <Label FontSize="Small">99/99999</Label>
+                </FlexLayout>
+                <Frame BorderColor="Gray" Padding="0,0,200,0">
+                    <Frame BackgroundColor="Gray" HorizontalOptions="Fill"></Frame>
+                </Frame>
+            </FlexLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

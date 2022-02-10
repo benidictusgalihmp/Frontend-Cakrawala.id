@@ -3,9 +3,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Cakrawala.Views"
-    x:Class="Cakrawala.AppShell">
-    <!-- Display a bottom tab bar containing two tabs -->
-    <FlyoutItem Route="home" Title="Notes">
-        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+    x:Class="Cakrawala.AppShell"
+    Shell.NavBarIsVisible="False">
+    
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+        <ShellContent Title="Login" Route="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
+        <ShellContent Title="Register" Route="Register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+        <ShellContent Title="Dashboard" Route="Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
     </FlyoutItem>
 </Shell>
