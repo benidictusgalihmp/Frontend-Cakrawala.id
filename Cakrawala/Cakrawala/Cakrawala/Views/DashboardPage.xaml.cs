@@ -27,8 +27,13 @@ namespace Cakrawala.Views
 
         public void OnChangeEmail(string value) 
         {
-            MainLabel.Text = $"Selamat Datang, {value.ToString()}";
+            if (value != null) MainLabel.Text = "Selamat Datang, " + value.ToString();
             BindingContext = value;
+        }
+
+        private async void LogoutButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//Login");
         }
     }
 }
