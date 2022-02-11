@@ -5,10 +5,14 @@
     xmlns:views="clr-namespace:Cakrawala.Views"
     x:Class="Cakrawala.AppShell"
     Shell.NavBarIsVisible="False">
-    
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+
+    <TabBar>
         <ShellContent Title="Login" Route="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
         <ShellContent Title="Register" Route="Register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+    </TabBar>
+    
+    <FlyoutItem>
         <ShellContent Title="Dashboard" Route="Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
-    </FlyoutItem>
+    </FlyoutItem> 
+    
 </Shell>
