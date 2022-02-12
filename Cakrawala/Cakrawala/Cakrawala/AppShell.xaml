@@ -6,13 +6,13 @@
     x:Class="Cakrawala.AppShell"
     Shell.NavBarIsVisible="False">
 
-    <TabBar>
-        <ShellContent Title="Login" Route="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
-        <ShellContent Title="Register" Route="Register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+    <TabBar >
+        <ShellContent Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
+        <ShellContent Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
     </TabBar>
     
     <FlyoutItem>
-        <ShellContent Title="Dashboard" Route="Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
+        <ShellContent Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
     </FlyoutItem> 
     
 </Shell>
