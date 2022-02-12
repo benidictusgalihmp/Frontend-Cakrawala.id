@@ -33,7 +33,12 @@ namespace Cakrawala.Views
 
         private async void LogoutButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//Login");
+            await Shell.Current.GoToAsync("//login");
+        }
+
+        private async void ProfileButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//profile");
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Cakrawala.Views
 
         private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//Login");
+            await Shell.Current.GoToAsync("//login");
         }
     }
 }

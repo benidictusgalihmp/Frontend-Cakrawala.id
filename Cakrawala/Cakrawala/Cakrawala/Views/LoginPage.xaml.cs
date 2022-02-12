@@ -20,7 +20,7 @@ namespace Cakrawala.Views
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
             string userEmail = email.Text;
-            await Shell.Current.GoToAsync($"//Dashboard?email={userEmail}");
+            await Shell.Current.GoToAsync($"//dashboard?email={userEmail}");
         }
     }
 }
