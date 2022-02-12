@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cakrawala.Views.UpdateProfilePage">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="100" WidthRequest="300">
+            <Label Text="Nama*"/>
+            <Entry Placeholder="Ketik di sini..." />
+            <Label Text="Password lama*"/>
+            <Entry Placeholder="Ketik di sini..." />
+            <Label Text="Password baru*"/>
+            <Entry Placeholder="Ketik di sini..." />
+            <Label Text="Konfirmasi Password*"/>
+            <Entry Placeholder="Ketik di sini..." />
+            <Button Text="Konfirmasi" Clicked="onClick"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

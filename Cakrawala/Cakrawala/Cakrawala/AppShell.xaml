@@ -5,6 +5,9 @@
     xmlns:views="clr-namespace:Cakrawala.Views"
     x:Class="Cakrawala.AppShell">
     <!-- Display a bottom tab bar containing two tabs -->
+    <FlyoutItem Route="update" Title="Update Profil">
+        <ShellContent ContentTemplate="{DataTemplate views:UpdateProfilePage}" />
+    </FlyoutItem>
     <FlyoutItem Route="home" Title="Notes">
         <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
     </FlyoutItem>
