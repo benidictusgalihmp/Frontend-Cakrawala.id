@@ -14,10 +14,10 @@
     <FlyoutItem>
         <ShellContent Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
     </FlyoutItem> 
-    <FlyoutItem Route="profil" Title="Profil">
-        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
+    <FlyoutItem>
+        <ShellContent Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
-    <FlyoutItem Route="update" Title="Update Profil">
-        <ShellContent ContentTemplate="{DataTemplate views:UpdateProfilePage}" />
+    <FlyoutItem>
+        <ShellContent Route="update" Title="Update Profile" ContentTemplate="{DataTemplate views:UpdateProfilePage}" />
     </FlyoutItem>
 </Shell>
