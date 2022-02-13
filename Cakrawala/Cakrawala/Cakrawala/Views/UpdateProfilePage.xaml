@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cakrawala.Views.UpdateProfilePage">
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="#D1DFEF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Column="1"
+            BackgroundColor="#153862"
+            HasShadow="True"
+            Padding="25"
+            VerticalOptions="Center">
+                <StackLayout>
+                    <Label Text="Nama*" TextColor="#FBFBFD" FontSize="Medium"/>
+                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
+                    <Label Text="Password lama*" TextColor="#FBFBFD" FontSize="Medium"/>
+                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
+                    <Label Text="Password baru*" TextColor="#FBFBFD" FontSize="Medium"/>
+                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
+                    <Label Text="Konfirmasi Password*" TextColor="#FBFBFD" FontSize="Medium"/>
+                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
+                    <Button Text="Konfirmasi" Clicked="confirmClick"
+                            BackgroundColor="#0043FC" TextColor="#FBFBFD"
+                            Margin="0,100,0,0"
+                            Padding="8" FontSize="Small"/>
+                    <Button Text="Batal" Clicked="cancelClick"
+                            BackgroundColor="#0043FC" TextColor="#FBFBFD"
+                            Margin="0,15,0,0"
+                            Padding="8" FontSize="Small"/>
+                </StackLayout>
+            </Frame>
+        </Grid>        
+    </ContentPage.Content>
+</ContentPage>

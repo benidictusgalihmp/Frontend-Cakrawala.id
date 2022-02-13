@@ -17,4 +17,7 @@
     <FlyoutItem Route="profil" Title="Profil">
         <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
+    <FlyoutItem Route="update" Title="Update Profil">
+        <ShellContent ContentTemplate="{DataTemplate views:UpdateProfilePage}" />
+    </FlyoutItem>
 </Shell>
