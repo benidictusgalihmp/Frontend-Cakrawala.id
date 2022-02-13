@@ -17,10 +17,15 @@ namespace Cakrawala.Views
             InitializeComponent();
         }
 
-        private async void onClick(object sender, EventArgs e)
+        private async void confirmClick(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//home");
+            await Shell.Current.GoToAsync("//profile");
 
+        }
+
+        private async void cancelClick(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//profile");
         }
     }
 }
