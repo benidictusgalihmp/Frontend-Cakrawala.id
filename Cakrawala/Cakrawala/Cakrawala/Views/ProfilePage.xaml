@@ -13,29 +13,29 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>        
-
-            <StackLayout 
-                Grid.Column="0" Margin="15">
-                <Button Text="Beranda" Clicked="DashboardButton_Clicked"
-                        BackgroundColor="#0043FC"
-                        TextColor="#FBFBFD"/>
-            </StackLayout>
-
+            
             <Frame Grid.Column="1"
                    HasShadow="True"
                    Padding="25"
                    VerticalOptions="Center"
                    BackgroundColor="#153862">
                 <StackLayout>
-                    <Label Text="Nama1_Nama2" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <Label Text="Nama1_Nama2" FontSize="Large" HorizontalTextAlignment="Center"/>
                     <Label Text="@username" FontSize="Micro" HorizontalTextAlignment="Center"/>
                     <Label Text="email@email.com" FontSize="Micro" HorizontalTextAlignment="Center"/>
                     <Button Text="Ubah Profil" Clicked="UpdateButton_Clicked"
-                        Margin="100 0 0 0"
                         Padding="8"
+                            Margin="100,100,100,0"
                         BackgroundColor="#0043FC"/>
                 </StackLayout>
             </Frame>
+
+            <StackLayout 
+                Grid.Column="2" Margin="15">
+                <Button Text="Beranda" Clicked="DashboardButton_Clicked"
+                        BackgroundColor="#0043FC"
+                        TextColor="#FBFBFD"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
