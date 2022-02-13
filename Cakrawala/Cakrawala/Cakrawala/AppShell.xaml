@@ -1,14 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Shell
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Cakrawala.Views"
-    x:Class="Cakrawala.AppShell">
-    <!-- Display a bottom tab bar containing two tabs -->
+    x:Class="Cakrawala.AppShell"
+    Shell.NavBarIsVisible="False">
+
+    <TabBar >
+        <ShellContent Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
+        <ShellContent Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+    </TabBar>
+    
+    <FlyoutItem>
+        <ShellContent Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
+    </FlyoutItem> 
     <FlyoutItem Route="profil" Title="Profil">
         <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
-    </FlyoutItem>
-    <FlyoutItem Route="login" Title="Login">
-        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}"/>
     </FlyoutItem>
 </Shell>
