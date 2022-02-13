@@ -18,11 +18,15 @@ namespace Cakrawala.Views
             InitializeComponent();
         }
 
-        private async void onClick(object sender, EventArgs e)
+        private async void UpdateButton_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//update");
             // BindingContext -- ngisi return variabel
 
+        }
+        private async void DashboardButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//dashboard");
         }
     }
 }

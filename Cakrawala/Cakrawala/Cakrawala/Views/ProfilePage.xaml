@@ -3,14 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cakrawala.Views.ProfilePage">
     <ContentPage.Content>
-        <StackLayout 
-            Margin="5" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center">
-            <Image Source="../Asset/profile-pic-dummy.jpg" />
-            
-            <Label Text="Name1_Name2" />
-            <Label Text="@username" />
-            <Label Text="email@email.com" />
-            <Button Text="Ubah Profil" Clicked="onClick"/>
-        </StackLayout>
+        <Grid
+            BackgroundColor="#D1DFEF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>        
+
+            <StackLayout 
+                Grid.Column="0" Margin="15">
+                <Button Text="Beranda" Clicked="DashboardButton_Clicked"
+                        BackgroundColor="#0043FC"
+                        TextColor="#FBFBFD"/>
+            </StackLayout>
+
+            <Frame Grid.Column="1"
+                   HasShadow="True"
+                   Padding="25"
+                   VerticalOptions="Center"
+                   BackgroundColor="#153862">
+                <StackLayout>
+                    <Label Text="Nama1_Nama2" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <Label Text="@username" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                    <Label Text="email@email.com" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                    <Button Text="Ubah Profil" Clicked="UpdateButton_Clicked"
+                        Margin="100 0 0 0"
+                        Padding="8"
+                        BackgroundColor="#0043FC"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
