@@ -19,8 +19,14 @@ namespace Cakrawala.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            string userEmail = email.Text;
-            await Shell.Current.GoToAsync($"//dashboard?email={userEmail}");
+            Application.Current.Properties["userEmail"] = email.Text.ToString();
+            Application.Current.Properties["token"] = "abcd";
+            await Shell.Current.GoToAsync($"//dashboard");
+        }
+
+        private async void DaftarButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//register");
         }
     }
 }

@@ -1,7 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cakrawala.Views.DashboardPage">
+             x:Class="Cakrawala.Views.DashboardPage"
+             BackgroundColor="#D1DFEF">
+
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+        <AbsoluteLayout Grid.Column="0" HorizontalOptions="Fill">
+            <Frame 
+                CornerRadius="0" 
+                BackgroundColor="#38567A"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                AbsoluteLayout.LayoutBounds="0,0,.8,1"
+                />
+            <Frame 
+                CornerRadius="1000" 
+                BackgroundColor="#38567A"
+                AbsoluteLayout.LayoutFlags="All" 
+                AbsoluteLayout.LayoutBounds=".9,0,.3,1"
+                />
+            <StackLayout 
+                Orientation="Vertical"
+                Spacing="25"
+                VerticalOptions="Center"
+                AbsoluteLayout.LayoutFlags="YProportional"
+                AbsoluteLayout.LayoutBounds="30,.5"
+            >
+                <StackLayout Orientation="Vertical" >
+                    <Label>Selamat Datang,</Label>
+                    <Label x:Name="userNameLabel" FontSize="Large">User</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Frame WidthRequest="25" HeightRequest="25" BackgroundColor="White" CornerRadius="100" VerticalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center" >
+                        <Label x:Name="lvlLabel">Lv 99</Label>
+                        <Frame Padding="0" HeightRequest="10" WidthRequest="200" BackgroundColor="White"/>
+                        <Label x:Name="expLabel">Exp 6666/9999</Label>
+                    </StackLayout>
+                </StackLayout>
+                <AbsoluteLayout BackgroundColor="#FFCC4A" MinimumWidthRequest="10" MinimumHeightRequest="10" Padding="5">
+                    <BoxView BackgroundColor="#FFB800" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All"/>
+                    <Frame 
+                        AbsoluteLayout.LayoutBounds=".5,-2,100,30" 
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        BackgroundColor="#FFCC4A"
+                        Padding="3"
+                        CornerRadius="0"
+                        VerticalOptions="Center"
+                    >
+                        <Label HorizontalTextAlignment="Center" BackgroundColor="#FFB800">GOLD</Label>
+                    </Frame>
+                    <Label 
+                        AbsoluteLayout.LayoutBounds=".5,1,1,1" 
+                        AbsoluteLayout.LayoutFlags="All" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="End"
+                        FontSize="Medium"
+                    >999 999 999</Label>
+                </AbsoluteLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10" Grid.Column="1" Padding="30">
+            <Button Grid.Row="0" Grid.Column="0" Text="Scan" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="Topup" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
+            <Button Grid.Row="1" Grid.Column="0" Text="History" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="Transfer" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
+        </Grid>
+    </Grid>
+    
+    <!--
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -40,4 +106,5 @@
         </Grid>
         
     </ContentPage.Content>
+    -->
 </ContentPage>

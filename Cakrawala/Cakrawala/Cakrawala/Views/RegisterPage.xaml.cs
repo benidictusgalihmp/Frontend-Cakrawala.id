@@ -21,5 +21,10 @@ namespace Cakrawala.Views
         {
             await Shell.Current.GoToAsync("//login");
         }
+
+        private async void MasukButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//login");
+        }
     }
 }
