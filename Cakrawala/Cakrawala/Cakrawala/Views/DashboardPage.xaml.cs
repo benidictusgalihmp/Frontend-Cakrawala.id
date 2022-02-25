@@ -9,25 +9,18 @@ using Xamarin.Forms.Xaml;
 
 namespace Cakrawala.Views
 {
-    [QueryProperty(nameof(Email), "email")]
     public partial class DashboardPage : ContentPage
     {
-        public string Email
-        {
-            set
-            {
-                OnChangeEmail(value);
-            }
-            get { return Email; }
-        }
         public DashboardPage()
         {
             InitializeComponent();
+            userNameLabel.Text = Application.Current.Properties["userEmail"].ToString();  
         }
 
         public void OnChangeEmail(string value) 
         {
-            if (value != null) MainLabel.Text = "Selamat Datang, " + value.ToString();
+            if (value != null) userNameLabel.Text = value.ToString();
+            else userNameLabel.Text = "User";
             BindingContext = value;
         }
 

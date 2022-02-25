@@ -10,14 +10,16 @@
         <ShellContent Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
         <ShellContent Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
     </TabBar>
-    
-    <FlyoutItem>
+
+    <FlyoutItem Title="Dashboard">
         <ShellContent Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
-    </FlyoutItem> 
-    <FlyoutItem>
+    </FlyoutItem>
+    <FlyoutItem Title="Profile" >
         <ShellContent Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
-    <FlyoutItem>
+    <FlyoutItem Title="Update Profile" >
         <ShellContent Route="update" Title="Update Profile" ContentTemplate="{DataTemplate views:UpdateProfilePage}" />
     </FlyoutItem>
+    
+    <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />
 </Shell>

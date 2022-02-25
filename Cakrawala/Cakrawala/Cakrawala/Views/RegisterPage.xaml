@@ -1,7 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cakrawala.Views.RegisterPage">
+             x:Class="Cakrawala.Views.RegisterPage"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#D1DFEF">
+
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+            <Label 
+                Grid.Row="0" 
+                FontSize="50" 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+            >Cakrawala</Label>
+            <Label 
+                Grid.Row="1" 
+                FontSize="25" 
+                TextColor="Black" 
+                HorizontalTextAlignment="Center"
+                LineHeight="0"
+            >Daftar</Label>
+        </Grid>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="1">
+            <Image Source="/Assets/profile-pic-dummy.png" Aspect="AspectFill"/>
+            <Frame CornerRadius="10" BackgroundColor="#355377" >
+                <StackLayout Padding="0" >
+                    <StackLayout Orientation="Vertical">
+                        <Label>Nama</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry x:Name="name" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label>Email</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry x:Name="email" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label>Password</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry x:Name="password" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label>Tulis Ulang Password</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry x:Name="retypePassword" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Button Padding="10" CornerRadius="5" Text="Daftar" BackgroundColor="#0043FC" FontSize="Small" Margin="50,10,50,0"/>
+            <Button
+                x:Name="MasukButton"
+                BackgroundColor="Transparent"
+                FontSize="Micro"
+                Text="Kembali ke Halaman Masuk"
+                TextColor="#082E58"
+                Clicked="MasukButton_Clicked"
+            />
+        </StackLayout>
+    </Grid>
+    
+    <!--
     <ContentPage.Content>
         <StackLayout Margin="20" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300">
             <Label Text="Register ke Cakrawala" FontSize="Large" HorizontalTextAlignment="Center" Margin="0,0,0,30"/>
@@ -27,4 +91,5 @@
             </FlexLayout>
         </StackLayout>
     </ContentPage.Content>
+    -->
 </ContentPage>

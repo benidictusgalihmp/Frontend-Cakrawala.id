@@ -8,5 +8,11 @@ namespace Cakrawala
         {
             InitializeComponent();
         }
+
+        private async void LogoutItem_Clicked(object sender, System.EventArgs e)
+        {
+            // Handle Logout
+            await Shell.Current.GoToAsync("//login");
+        }
     }
 }
