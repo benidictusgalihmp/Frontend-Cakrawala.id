@@ -1,41 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cakrawala.Views.ProfilePage">
-    <ContentPage.Content>
-        <Grid
-            BackgroundColor="#D1DFEF">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>        
-            
-            <Frame Grid.Column="1"
-                   HasShadow="True"
-                   Padding="25"
-                   VerticalOptions="Center"
-                   BackgroundColor="#153862">
-                <StackLayout>
-                    <Label Text="Nama1_Nama2" FontSize="Large" HorizontalTextAlignment="Center"/>
-                    <Label Text="@username" FontSize="Micro" HorizontalTextAlignment="Center"/>
-                    <Label Text="email@email.com" FontSize="Micro" HorizontalTextAlignment="Center"/>
-                    <Button Text="Ubah Profil" Clicked="UpdateButton_Clicked"
-                        Padding="8"
-                            Margin="100,100,100,0"
-                        BackgroundColor="#0043FC"/>
-                </StackLayout>
-            </Frame>
-
-            <StackLayout 
-                Grid.Column="2" Margin="15">
-                <Button Text="Beranda" Clicked="DashboardButton_Clicked"
-                        BackgroundColor="#0043FC"
-                        TextColor="#FBFBFD"/>
+             x:Class="Cakrawala.Views.ProfilePage"
+             BackgroundColor="#D1DFEF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" 
+              Grid.Row="0"
+              Margin="80, 50, 25, 0">
+            <StackLayout>
+                <Label 
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Margin="0,0,0,20"
+                    HorizontalTextAlignment="Start"
+                    TextColor="#082E58">Pengaturan</Label>
+                <Button Text="Profil"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        HeightRequest="90"
+                        FontSize="Medium"
+                        BackgroundColor="#B6CCE3"
+                        TextColor="#082E58"/>
+                <Button Text="Ubah Profil" 
+                        HeightRequest="90"
+                        FontSize="Medium"
+                        BackgroundColor="#D1DFEF" 
+                        TextColor="#082E58"
+                        Clicked="UpdateButton_Clicked"/>
             </StackLayout>
         </Grid>
-    </ContentPage.Content>
+        <Grid Grid.Column="1" 
+              Grid.Row="0"
+              Margin="10, 50, 100, 0"
+              Padding="15,0,15,0">
+            <Frame
+                Grid.Row="0"
+                Padding="35,25,35,25"
+                CornerRadius="8"
+                BackgroundColor="#38567A">
+                <StackLayout
+                    VerticalOptions="Center">
+                    <Label 
+                        HorizontalTextAlignment="Center"
+                        Margin="0,0,0,10"
+                        FontSize="Large"
+                        FontAttributes="Bold">Nama</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        FontSize="Medium">@username</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        FontSize="Medium">email@email.com</Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </Grid>
 </ContentPage>

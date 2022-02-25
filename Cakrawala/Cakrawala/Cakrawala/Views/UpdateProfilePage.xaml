@@ -1,8 +1,178 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cakrawala.Views.UpdateProfilePage">
-    <ContentPage.Content>
+             x:Class="Cakrawala.Views.UpdateProfilePage"
+             BackgroundColor="#D1DFEF">
+    <Grid>
+        <Grid Grid.Column="0" 
+              Grid.Row="0"
+              Margin="80, 50, 25, 0">
+            <StackLayout>
+                <Label 
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Margin="0,0,0,20"
+                    HorizontalTextAlignment="Start"
+                    TextColor="#082E58">Pengaturan</Label>
+                <Button Text="Profil"
+                        HeightRequest="90"
+                        FontSize="Medium"
+                        BorderColor="#D1DFEF"
+                        BackgroundColor="#D1DFEF" 
+                        TextColor="#082E58"
+                        Clicked="ProfileButton_Clicked"/>
+                <Button Text="Ubah Profil"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        HeightRequest="90"
+                        FontSize="Medium"
+                        BackgroundColor="#B6CCE3"
+                        TextColor="#082E58"/>
+            </StackLayout>
+        </Grid>
+        <ScrollView Grid.Column="1"
+                    Grid.Row="0"
+                      Margin="10, 50, 100, 0"
+                      Padding="15,0,15,0">
+            <StackLayout>
+                <Frame
+                Grid.Row="0"
+                Padding="35,25,35,25"
+                CornerRadius="15"
+                BackgroundColor="#38567A">
+                    <StackLayout
+                    VerticalOptions="Center">
+                        <Label
+                            FontSize="Medium">Nama*</Label>
+                        <Entry Placeholder="Nama"
+                               HeightRequest="40"
+                               Margin="0,0,0,10"
+                               BackgroundColor="White"
+                               TextColor="#082E58"
+                               PlaceholderColor="#5F83AA"/>
+                        <Label
+                            FontSize="Medium">Username*</Label>
+                        <Entry Placeholder="Username"
+                               HeightRequest="40"
+                               Margin="0,0,0,25"
+                               BackgroundColor="White"
+                               TextColor="#082E58"
+                               PlaceholderColor="#5F83AA"/>
+                        <Button Text="Simpan Nama"
+                                FontSize="Medium"
+                                Margin="0,25,0,0"
+                                HeightRequest="60"
+                                BackgroundColor="#4D7EFF"
+                                TextColor="White"
+                                CornerRadius="8"/>
+                    </StackLayout>
+                </Frame>
+                <Frame
+                Grid.Row="0"
+                Padding="35,25,35,25"
+                Margin="0,30,0,0"
+                CornerRadius="15"
+                BackgroundColor="#38567A">
+                    <StackLayout
+                    VerticalOptions="Center">
+                        <Label
+                            FontSize="Medium">Password lama*</Label>
+                        <Entry Placeholder="Masukkan password lama" 
+                               IsPassword="True"
+                               HeightRequest="40"
+                               Margin="0,0,0,10"
+                               BackgroundColor="White"
+                               TextColor="#082E58"
+                               PlaceholderColor="#5F83AA"/>
+                        <Label
+                            FontSize="Medium">Password baru*</Label>
+                        <Entry Placeholder="Masukkan password baru" 
+                               IsPassword="True"
+                               HeightRequest="40"
+                               Margin="0,0,0,10"
+                               BackgroundColor="White"
+                               TextColor="#082E58"
+                               PlaceholderColor="#5F83AA"/>
+                        <Label
+                            FontSize="Medium">Konfirmasi password</Label>
+                        <Entry Placeholder="Konfirmasi password" 
+                               IsPassword="True"
+                               HeightRequest="40"
+                               Margin="0,0,0,25"
+                               BackgroundColor="White"
+                               TextColor="#082E58"
+                               PlaceholderColor="#5F83AA"/>
+                        <Button Text="Simpan Password"
+                                FontSize="Medium"
+                                Margin="0,25,0,0"
+                                HeightRequest="60"
+                                BackgroundColor="#4D7EFF"
+                                TextColor="White"
+                                CornerRadius="8"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <!--<Grid Grid.Column="1" 
+              Grid.Row="0"
+              Margin="10, 50, 100, 0"
+              Padding="15,0,15,0">
+            <Frame
+                Grid.Row="0"
+                Padding="35,25,35,25"
+                CornerRadius="8"
+                BackgroundColor="#38567A">
+                <StackLayout
+                    VerticalOptions="Center">
+                    <Label 
+                        HorizontalTextAlignment="Center"
+                        Margin="0,0,0,10"
+                        FontSize="Large"
+                        FontAttributes="Bold">Nama</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        FontSize="Medium">@username</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        FontSize="Medium">email@email.com</Label>
+                </StackLayout>
+            </Frame>
+        </Grid> -->
+    </Grid>
+    
+    
+        <!--<Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Column="1">
+                <StackLayout>
+                    <Label>Pengaturan</Label>
+                    <Button Text="Profile" Clicked="ProfileButton_Clicked"/>
+                    <Button Text="Ubah Profile"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Column="2">
+                <StackLayout>
+                    
+                </StackLayout>
+                
+            </Frame>
+            <Frame Grid.Column="2">
+                <StackLayout>
+                    
+                </StackLayout>
+            </Frame>
+            
+        </Grid> -->
+        <!--
         <Grid
             BackgroundColor="#D1DFEF">
             <Grid.ColumnDefinitions>
@@ -20,24 +190,9 @@
             Padding="25"
             VerticalOptions="Center">
                 <StackLayout>
-                    <Label Text="Nama*" TextColor="#FBFBFD" FontSize="Medium"/>
-                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
-                    <Label Text="Password lama*" TextColor="#FBFBFD" FontSize="Medium"/>
-                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
-                    <Label Text="Password baru*" TextColor="#FBFBFD" FontSize="Medium"/>
-                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
-                    <Label Text="Konfirmasi Password*" TextColor="#FBFBFD" FontSize="Medium"/>
-                    <Entry Placeholder="Ketik di sini..." BackgroundColor="#FBFBFD" PlaceholderColor="#355377" TextColor="#082E58"/>
-                    <Button Text="Konfirmasi" Clicked="confirmClick"
-                            BackgroundColor="#0043FC" TextColor="#FBFBFD"
-                            Margin="0,100,0,0"
-                            Padding="8" FontSize="Small"/>
-                    <Button Text="Batal" Clicked="cancelClick"
-                            BackgroundColor="#0043FC" TextColor="#FBFBFD"
-                            Margin="0,15,0,0"
-                            Padding="8" FontSize="Small"/>
+                    
                 </StackLayout>
             </Frame>
-        </Grid>        
-    </ContentPage.Content>
+        </Grid>
+        -->
 </ContentPage>
