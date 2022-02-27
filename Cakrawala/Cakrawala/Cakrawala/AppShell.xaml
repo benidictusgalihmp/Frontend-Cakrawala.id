@@ -5,10 +5,11 @@
     xmlns:views="clr-namespace:Cakrawala.Views"
     x:Class="Cakrawala.AppShell"
     Shell.NavBarIsVisible="False">
-
+    
     <TabBar >
         <ShellContent Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
         <ShellContent Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+        <ShellContent Title="Update" Route="update" ContentTemplate="{DataTemplate views:UpdateProfilePage}"/>
     </TabBar>
 
     <FlyoutItem Title="Dashboard">
@@ -17,9 +18,6 @@
     <FlyoutItem Title="Profile" >
         <ShellContent Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Update Profile" >
-        <ShellContent Route="update" Title="Update Profile" ContentTemplate="{DataTemplate views:UpdateProfilePage}" />
-    </FlyoutItem>
-    
+
     <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />
 </Shell>
