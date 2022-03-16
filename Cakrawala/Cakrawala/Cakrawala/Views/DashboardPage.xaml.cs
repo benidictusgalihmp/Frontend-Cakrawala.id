@@ -14,7 +14,7 @@ namespace Cakrawala.Views
         public DashboardPage()
         {
             InitializeComponent();
-            userNameLabel.Text = Application.Current.Properties["userEmail"].ToString();  
+            userNameLabel.Text = Application.Current.Properties["username"].ToString();  
         }
 
         public void OnChangeEmail(string value) 
