@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cakrawala.Data;
+using System;
+using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,6 +8,8 @@ namespace Cakrawala
 {
     public partial class App : Application
     {
+        public static AuthService authService = new AuthService();
+
         public App()
         {
             InitializeComponent();
