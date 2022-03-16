@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Cakrawala.Data.AuthService;
 
 namespace Cakrawala.Views
 {
@@ -15,12 +17,20 @@ namespace Cakrawala.Views
         public LoginPage()
         {
             InitializeComponent();
+            email.Text = "skaldraf@gmail.com";
+            password.Text = "secret123";
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Application.Current.Properties["userEmail"] = email.Text.ToString();
-            Application.Current.Properties["token"] = "abcd";
+            LoginResponse response = await App.authService.LoginAsync(email.Text, password.Text);
+            if (response.jwt_token == null) 
+            {
+                return;
+            }
+
+            Application.Current.Properties["username"] = response.username;
+            Application.Current.Properties["token"] = response.jwt_token;
             await Shell.Current.GoToAsync($"//dashboard");
         }
 
