@@ -28,7 +28,13 @@
             <Frame CornerRadius="10" BackgroundColor="#355377" >
                 <StackLayout Padding="0" >
                     <StackLayout Orientation="Vertical">
-                        <Label>Nama</Label>
+                        <Label>Username</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry x:Name="username" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label>Nama Asli</Label>
                         <Frame Padding="0" CornerRadius="7">
                             <Entry x:Name="name" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
                         </Frame>
@@ -42,18 +48,19 @@
                     <StackLayout Orientation="Vertical">
                         <Label>Password</Label>
                         <Frame Padding="0" CornerRadius="7">
-                            <Entry x:Name="password" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                            <Entry TextChanged="password_TextChanged" IsPassword="True" x:Name="password" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
                         </Frame>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
                         <Label>Tulis Ulang Password</Label>
                         <Frame Padding="0" CornerRadius="7">
-                            <Entry x:Name="retypePassword" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                            <Entry TextChanged="password_TextChanged"  IsPassword="True" x:Name="retypePassword" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
                         </Frame>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Button Padding="10" CornerRadius="5" Text="Daftar" BackgroundColor="#0043FC" FontSize="Small" Margin="50,10,50,0"/>
+            <Label HorizontalOptions="Center" TextColor="Red" x:Name="errorText"></Label>
+            <Button Padding="10" CornerRadius="5" Text="Daftar" BackgroundColor="#0043FC" FontSize="Small" Margin="50,10,50,0" Clicked="RegisterButton_Clicked"/>
             <Button
                 x:Name="MasukButton"
                 BackgroundColor="Transparent"

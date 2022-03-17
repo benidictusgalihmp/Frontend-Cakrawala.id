@@ -40,11 +40,12 @@
                     <StackLayout Orientation="Vertical">
                         <Label>Password</Label>
                         <Frame Padding="0" CornerRadius="7">
-                            <Entry x:Name="password" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                            <Entry IsPassword="True" x:Name="password" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
                         </Frame>
                     </StackLayout>
                 </StackLayout>
             </Frame>
+            <Label HorizontalOptions="Center" TextColor="Red" x:Name="errorText"></Label>
             <Button 
                 CornerRadius="5" 
                 Text="Login" 
