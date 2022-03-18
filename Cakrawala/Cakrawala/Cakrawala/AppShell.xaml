@@ -7,16 +7,16 @@
     Shell.NavBarIsVisible="False">
     
     <TabBar >
-        <ShellContent Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
-        <ShellContent Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
-        <ShellContent Title="Update" Route="update" ContentTemplate="{DataTemplate views:UpdateProfilePage}"/>
+        <ShellContent x:Name="loginPage" Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
+        <ShellContent x:Name="registerPage" Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+        <ShellContent x:Name="updatePage" Title="Update" Route="update" ContentTemplate="{DataTemplate views:UpdateProfilePage}"/>
     </TabBar>
 
     <FlyoutItem Title="Dashboard">
-        <ShellContent Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
+        <ShellContent x:Name="dashboardPage" Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Profile" >
-        <ShellContent Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
+        <ShellContent x:Name="profilePage" Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
 
     <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />
