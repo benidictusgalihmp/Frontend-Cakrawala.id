@@ -33,5 +33,10 @@ namespace Cakrawala.Views
         {
             await Shell.Current.GoToAsync("//profile");
         }
+
+        private async void TransferButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//transfer");
+        }
     }
 }

@@ -63,7 +63,7 @@
             <Button Grid.Row="0" Grid.Column="0" Text="Scan" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
             <Button Grid.Row="0" Grid.Column="1" Text="Topup" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
             <Button Grid.Row="1" Grid.Column="0" Text="History" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
-            <Button Grid.Row="1" Grid.Column="1" Text="Transfer" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="Transfer" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="TransferButton_Clicked"/>
         </Grid>
     </Grid>
     

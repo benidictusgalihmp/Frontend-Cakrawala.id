@@ -18,6 +18,9 @@
     <FlyoutItem Title="Profile" >
         <ShellContent x:Name="profilePage" Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Transfer" >
+        <ShellContent x:Name="transferPage" Route="transfer" Title="Transfer" ContentTemplate="{DataTemplate views:TransferPage}" />
+    </FlyoutItem>
 
     <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />
 </Shell>

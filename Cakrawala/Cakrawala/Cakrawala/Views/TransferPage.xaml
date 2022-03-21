@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cakrawala.Views.TransferPage"
+             xmlns:utils="clr-namespace:Cakrawala.Util"
+             BackgroundColor="#D1DFEF">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+        <StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="20">
+            <Label 
+                FontSize="50" 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+            >Cakrawala</Label>
+            <Label 
+                FontSize="Medium" 
+                TextColor="Black" 
+                HorizontalTextAlignment="Center"
+                LineHeight="0"
+            >Transfer Saldo</Label>
+            <StackLayout Padding="0" Orientation="Vertical" Margin="0, 50, 0, 50" HorizontalOptions="Center">
+                <Label FontSize="Medium" TextColor="Black" FontAttributes="Bold">Pilihan Nominal</Label>
+                <Label FontSize="Micro" TextColor="Black">Tekan untuk menambahkan nominal otomatis</Label>
+                <StackLayout Orientation="Horizontal" Padding="10, 10">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Button 
+                            CornerRadius="5" 
+                            Text="Rp5000" 
+                            BackgroundColor="#00FC00" 
+                            FontSize="Small" 
+                            Padding="10"
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="NominalButton_Clicked"
+                        />
+                        <Button 
+                            CornerRadius="5" 
+                            Text="Rp20000" 
+                            BackgroundColor="#00FC00" 
+                            FontSize="Small" 
+                            Padding="10"
+                            Clicked="NominalButton_Clicked"
+                        />
+                        <Button 
+                            CornerRadius="5" 
+                            Text="Rp100000" 
+                            BackgroundColor="#00FC00" 
+                            FontSize="Small" 
+                            Padding="10"
+                            Clicked="NominalButton_Clicked"
+                        />
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Button 
+                            CornerRadius="5" 
+                            Text="Rp10000" 
+                            BackgroundColor="#00FC00" 
+                            FontSize="Small" 
+                            Padding="10"
+                            Clicked="NominalButton_Clicked"
+                        />
+                        <Button 
+                            CornerRadius="5" 
+                            Text="Rp50000" 
+                            BackgroundColor="#00FC00" 
+                            FontSize="Small" 
+                            Padding="10"
+                            Clicked="NominalButton_Clicked"
+                        />
+                        <Button 
+                            CornerRadius="5" 
+                            Text="Rp250000" 
+                            BackgroundColor="#00FC00" 
+                            FontSize="Small" 
+                            Padding="10"
+                            Clicked="NominalButton_Clicked"
+                        />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="1">
+            <Frame CornerRadius="10" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20, 40">
+                <StackLayout >
+                    <StackLayout Orientation="Vertical">
+                        <Label FontSize="Medium" FontAttributes="Bold">ID Penerima</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry x:Name="receiverId" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+                    <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 20, 0, 10"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label FontSize="Medium" FontAttributes="Bold">Nominal Transfer</Label>
+                        <Label FontSize="Micro">Total nominal</Label>
+                        <Frame Padding="0" CornerRadius="7">
+                            <Entry 
+                                x:Name="nominal" 
+                                WidthRequest="300" 
+                                BackgroundColor="White" 
+                                TextColor="Black" 
+                                Keyboard="Numeric"
+                                
+                            >
+                                <Entry.Behaviors>
+                                    <utils:PlainNumericEntryBehavior/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 20, 0, 10"/>
+                    <Button 
+                        CornerRadius="5" 
+                        Text="Lanjut" 
+                        BackgroundColor="#0043FC" 
+                        FontSize="Small" 
+                        Margin="10"
+                        Padding="10"
+                    />
+                </StackLayout>
+            </Frame>
+            <Label HorizontalOptions="Center" TextColor="Red" x:Name="errorText"></Label>
+            
+        </StackLayout>
+    </Grid>
+</ContentPage>
