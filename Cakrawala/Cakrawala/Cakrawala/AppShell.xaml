@@ -10,17 +10,23 @@
         <ShellContent x:Name="loginPage" Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
         <ShellContent x:Name="registerPage" Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
         <ShellContent x:Name="updatePage" Title="Update" Route="update" ContentTemplate="{DataTemplate views:UpdateProfilePage}"/>
-        <ShellContent x:Name="transferConfirmationPage" Title="Confirm Transfer" Route="transferconfirmation" ContentTemplate="{DataTemplate views:TransferConfirmationPage}"/>
+        
     </TabBar>
 
     <FlyoutItem Title="Dashboard">
         <ShellContent x:Name="dashboardPage" Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Profile" >
+    <FlyoutItem Title="Profile">
         <ShellContent x:Name="profilePage" Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Transfer" >
+    <FlyoutItem Title="Transfer">
         <ShellContent x:Name="transferPage" Route="transfer" Title="Transfer" ContentTemplate="{DataTemplate views:TransferPage}" />
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent x:Name="transferConfirmationPage" Title="Confirm Transfer" Route="transferconfirmation" ContentTemplate="{DataTemplate views:TransferConfirmationPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Topup">
+        <ShellContent x:Name="topupVoucherPage" Title="Topup" Route="topupvoucher" ContentTemplate="{DataTemplate views:TopupVoucherPage}"/>
     </FlyoutItem>
 
     <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />
