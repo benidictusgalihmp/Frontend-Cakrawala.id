@@ -38,5 +38,10 @@ namespace Cakrawala.Views
         {
             await Shell.Current.GoToAsync("//transfer");
         }
+
+        private async void TopupButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//topupvoucher");
+        }
     }
 }

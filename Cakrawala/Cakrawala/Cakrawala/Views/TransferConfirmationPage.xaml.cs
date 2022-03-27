@@ -60,5 +60,10 @@ namespace Cakrawala.Views
         {
             Debug.WriteLine($"recvId: {receiverId}, nominal: {nominal}");
         }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//transfer");
+        }
     }
 }
