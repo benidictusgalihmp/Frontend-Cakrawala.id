@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cakrawala.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,17 @@ namespace Cakrawala.Views
         public DashboardPage()
         {
             InitializeComponent();
-            userNameLabel.Text = Application.Current.Properties["username"].ToString();  
+            userNameLabel.Text = Application.Current.Properties["username"].ToString();
+            RetrieveUserData();
+        }
+
+        private async void RetrieveUserData()
+        {
+            User userData = await App.dashboardService.DashboardAsync();
+            userNameLabel.Text = userData.displayName != "" ? userData.displayName : "{User Name}";
+            lvlLabel.Text = "LVL " + userData.level.ToString();
+            expLabel.Text = "EXP " + userData.exp.ToString();
+            nominalLabel.Text = "Rp " + userData.balance.ToString();
         }
 
         public void OnChangeEmail(string value) 

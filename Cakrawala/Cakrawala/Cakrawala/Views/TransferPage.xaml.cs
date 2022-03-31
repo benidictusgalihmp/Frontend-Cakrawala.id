@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cakrawala.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -25,8 +26,15 @@ namespace Cakrawala.Views
 
         private async void LanjutButton_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine(receiverId.Text);
-            await Shell.Current.GoToAsync($"//transferconfirmation?receiverId={this.receiverId.Text}&nominal={this.nominal.Text}");
+            User recvUser = await App.transferService.FindUserAsync(this.receiverId.Text);
+            if (recvUser != null)
+            {
+                // this.errorFindUserNote.IsVisible = false;
+                await Shell.Current.GoToAsync($"//transferconfirmation?receiverId={this.receiverId.Text}&nominal={this.nominal.Text}&receiverName={recvUser.userName}");
+            } else
+            {
+                await DisplayAlert("Error", "Tidak dapat menemukan Pengguna dengan ID terkait", "Ok");
+            }
         }
     }
 }

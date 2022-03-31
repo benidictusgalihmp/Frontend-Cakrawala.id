@@ -80,8 +80,15 @@
         </StackLayout>
 
         <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="1">
-            <Frame CornerRadius="10" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20, 40">
+            <Frame CornerRadius="10" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20, 40, 20, 40">
                 <StackLayout >
+                    <!--
+                    <Frame x:Name="errorFindUserNote" BackgroundColor="#580808" CornerRadius="5" IsVisible="False">
+                        <Label>
+                            Pengguna dengan ID tertulis tidak dapat ditemukan
+                        </Label>
+                    </Frame>
+                    -->
                     <StackLayout Orientation="Vertical">
                         <Label FontSize="Medium" FontAttributes="Bold">ID Penerima</Label>
                         <Frame Padding="0" CornerRadius="7">

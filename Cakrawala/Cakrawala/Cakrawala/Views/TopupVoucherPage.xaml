@@ -32,19 +32,25 @@
                     BackgroundColor="#0043FC" 
                     FontSize="Small" 
                     Padding="10"
+                    Clicked="BankButton_Clicked"
                 />
             </StackLayout>
         </StackLayout>
 
         <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="1">
-            <Frame CornerRadius="10" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20, 40">
+            <Frame CornerRadius="10" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20,10, 20, 40">
                 <StackLayout >
+                    <Frame x:Name="errorFindUserNote" BackgroundColor="#580808" CornerRadius="5" IsVisible="False">
+                        <Label>
+                            Kode telah expired atau telah digunakan
+                        </Label>
+                    </Frame>
                     <StackLayout Orientation="Vertical">
                         <Label FontSize="Medium" FontAttributes="Bold">12 Digit Voucher</Label>
                         <Frame Padding="0" CornerRadius="7">
                             <StackLayout Orientation="Horizontal">
                                 <Entry 
-                                    x:Name="nominal" 
+                                    x:Name="redeemCode" 
                                     WidthRequest="300" 
                                     BackgroundColor="White" 
                                     TextColor="Black" 
@@ -62,6 +68,7 @@
                         FontSize="Small" 
                         Margin="10"
                         Padding="10"
+                        Clicked="RedeemButton_Clicked"
                     />
                 </StackLayout>
             </Frame>

@@ -27,14 +27,15 @@
             >
                 <StackLayout Orientation="Vertical" >
                     <Label>Selamat Datang,</Label>
-                    <Label x:Name="userNameLabel" FontSize="Large">User</Label>
+                    <Label x:Name="userNameLabel" FontSize="Large">{UserName}</Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" >
+                    <Image Source="profile-pic-dummy.jpg"/>
                     <Frame WidthRequest="25" HeightRequest="25" BackgroundColor="White" CornerRadius="100" VerticalOptions="Center"/>
                     <StackLayout Orientation="Vertical" VerticalOptions="Center" >
-                        <Label x:Name="lvlLabel">Lv 99</Label>
+                        <Label x:Name="lvlLabel">Lvl {Lvl}</Label>
                         <Frame Padding="0" HeightRequest="10" WidthRequest="200" BackgroundColor="White"/>
-                        <Label x:Name="expLabel">Exp 6666/9999</Label>
+                        <Label x:Name="expLabel">Exp {Exp}</Label>
                     </StackLayout>
                 </StackLayout>
                 <AbsoluteLayout BackgroundColor="#FFCC4A" MinimumWidthRequest="10" MinimumHeightRequest="10" Padding="5">
@@ -47,15 +48,16 @@
                         CornerRadius="0"
                         VerticalOptions="Center"
                     >
-                        <Label HorizontalTextAlignment="Center" BackgroundColor="#FFB800">GOLD</Label>
+                        <Label x:Name="rankLabel" HorizontalTextAlignment="Center" BackgroundColor="#FFB800">{Rank}</Label>
                     </Frame>
                     <Label 
+                        x:Name="nominalLabel"
                         AbsoluteLayout.LayoutBounds=".5,1,1,1" 
                         AbsoluteLayout.LayoutFlags="All" 
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="End"
                         FontSize="Medium"
-                    >999 999 999</Label>
+                    >{Nominal}</Label>
                 </AbsoluteLayout>
             </StackLayout>
         </AbsoluteLayout>
