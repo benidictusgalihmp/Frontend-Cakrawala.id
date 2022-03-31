@@ -28,6 +28,15 @@
     <FlyoutItem Title="Topup">
         <ShellContent x:Name="topupVoucherPage" Title="Topup" Route="topupvoucher" ContentTemplate="{DataTemplate views:TopupVoucherPage}"/>
     </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent x:Name="topupBankPage" Title="Topup Bank" Route="topupbank" ContentTemplate="{DataTemplate views:TopupBankPage}"/>
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent Title="Topup Bank Request" Route="topupbankrequest" ContentTemplate="{DataTemplate views:TopupBankRequestPage}"/>
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent Title="Petunjuk Topup Bank" Route="topupbankstep" ContentTemplate="{DataTemplate views:TopupBankStepPage}"/>
+    </FlyoutItem>
 
     <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />
 </Shell>
