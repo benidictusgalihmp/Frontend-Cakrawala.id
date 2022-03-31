@@ -42,5 +42,18 @@ namespace Cakrawala.Models
             loginType = u.loginType;
 
         }
+
+        public User()
+        {
+            userId = "";
+            userName = "";
+            password = "";
+            displayName = "";
+            email = "";
+            balance = 0;
+            exp = 0;
+            level = 0;
+            loginType = 0;
+        }
     }
 }

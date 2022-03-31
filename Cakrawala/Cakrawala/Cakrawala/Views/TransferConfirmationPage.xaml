@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cakrawala.Views.TransferConfirmationPage"
+             BackgroundColor="#D1DFEF"
+             Shell.FlyoutItemIsVisible="True">
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="1">
+        <Frame CornerRadius="10" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20, 40">
+            <StackLayout >
+                
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                    <Label FontSize="Micro" HorizontalTextAlignment="Center">Transfer</Label>
+                    <Label x:Name="nominalLabel" FontSize="Large" HorizontalTextAlignment="Center">{Nominal}</Label>
+                </StackLayout>
+                <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 20, 0, 10"/>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                    <Label FontSize="Micro" HorizontalTextAlignment="Center">Penerima</Label>
+                    <Label x:Name="receiverIdLabel" FontSize="Medium" HorizontalTextAlignment="Center">{ID Penerima}</Label>
+                    <Label x:Name="receiverNameLabel" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center">{Nama Penerima}</Label>
+                </StackLayout>
+                <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 20, 0, 10"/>
+                <Button 
+                    CornerRadius="5" 
+                    Text="Konfirmasi dan Bayar" 
+                    BackgroundColor="#0043FC" 
+                    FontSize="Small" 
+                    Margin="10"
+                    Padding="10"
+                    Clicked="ConfirmButton_Clicked"
+                />
+                <Button 
+                    CornerRadius="5" 
+                    Text="Kembali" 
+                    BackgroundColor="#0043FC" 
+                    FontSize="Small" 
+                    Margin="10"
+                    Padding="5"
+                    Clicked="BackButton_Clicked"
+                />
+            </StackLayout>
+        </Frame>
+        <Label HorizontalOptions="Center" TextColor="Red" x:Name="errorText"></Label>
+
+    </StackLayout>
+</ContentPage>
