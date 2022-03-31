@@ -11,11 +11,16 @@ namespace Cakrawala.Data
 {
     public class TopupService
     {
-        static HttpClient client = new HttpClient();
+        HttpClient client;
 
-        public static async Task<bool> TopupAsync(string voucherCode)
+        public TopupService()
         {
-            Uri uri = new Uri(string.Format(Constants.LocalRestUrl + "transfer", string.Empty));
+            client = new HttpClient();
+        }
+
+        public async Task<bool> TopupAsync(string voucherCode)
+        {
+            Uri uri = new Uri(string.Format(Constants.LocalRestUrl + "topup", string.Empty));
             bool output = false;
             try
             {

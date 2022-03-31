@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Cakrawala.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,10 +19,10 @@ namespace Cakrawala.Data
             client = new HttpClient();
         }
 
-        public async Task<DashboardResponse> DashboardAsync(string email, string password)
+        public async Task<User> DashboardAsync()
         {
             Uri uri = new Uri(string.Format(Constants.RestUrl + "users", string.Empty));
-            DashboardResponse dashResp = new DashboardResponse();
+            User dashResp = new User();
 
             try
             {
@@ -34,8 +35,8 @@ namespace Cakrawala.Data
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string rawLogResp = await response.Content.ReadAsStringAsync();
-                    dashResp = JsonConvert.DeserializeObject<DashboardResponse>(rawLogResp);
+                    string rawResp = await response.Content.ReadAsStringAsync();
+                    dashResp = JsonConvert.DeserializeObject<User>(rawResp);
                 }
             }
             catch (Exception ex)
@@ -47,31 +48,5 @@ namespace Cakrawala.Data
             return dashResp;
         }
 
-        public class DashboardResponse
-        {
-            public string userId { get; set; }
-            public string name { get; set; }
-            public int level { get; set; }
-            public int exp { get; set; }
-            public int credit { get; set; }
-
-            public DashboardResponse()
-            {
-                this.userId = "";
-                this.name = "";
-                level = 0;
-                exp = 0;
-                credit = 0;
-            }
-
-            public DashboardResponse (string userId, string name, int level, int exp, int credit)
-            {
-                this.userId = userId;
-                this.name = name;
-                this.level = level;
-                this.exp = exp;
-                this.credit = credit;
-            }
-        }
     }
 }
