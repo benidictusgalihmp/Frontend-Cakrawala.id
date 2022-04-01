@@ -16,11 +16,28 @@
     <FlyoutItem Title="Dashboard">
         <ShellContent x:Name="dashboardPage" Title="Dashboard" Route="dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Profile" >
+    <FlyoutItem Title="Profile">
         <ShellContent x:Name="profilePage" Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
     <FlyoutItem Title="Riwayat Transaksi">
         <ShellContent x:Name="historyPage" Title="History" Route="history" ContentTemplate="{DataTemplate views:HistoryPage}"/>
+    <FlyoutItem Title="Transfer">
+        <ShellContent x:Name="transferPage" Route="transfer" Title="Transfer" ContentTemplate="{DataTemplate views:TransferPage}" />
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent x:Name="transferConfirmationPage" Title="Confirm Transfer" Route="transferconfirmation" ContentTemplate="{DataTemplate views:TransferConfirmationPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Topup">
+        <ShellContent x:Name="topupVoucherPage" Title="Topup" Route="topupvoucher" ContentTemplate="{DataTemplate views:TopupVoucherPage}"/>
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent x:Name="topupBankPage" Title="Topup Bank" Route="topupbank" ContentTemplate="{DataTemplate views:TopupBankPage}"/>
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent Title="Topup Bank Request" Route="topupbankrequest" ContentTemplate="{DataTemplate views:TopupBankRequestPage}"/>
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent Title="Petunjuk Topup Bank" Route="topupbankstep" ContentTemplate="{DataTemplate views:TopupBankStepPage}"/>
     </FlyoutItem>
 
     <MenuItem x:Name="LogoutItem" Text="Logout" Clicked="LogoutItem_Clicked" />

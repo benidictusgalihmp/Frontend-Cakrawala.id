@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#D1DFEF"
+             x:Class="Cakrawala.Views.TopupBankStepPage">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+        <StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="20">
+            <Label 
+                FontSize="50" 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+            >Cakrawala</Label>
+            <Label 
+                FontSize="Medium" 
+                TextColor="Black" 
+                HorizontalTextAlignment="Center"
+                LineHeight="0"
+            >Top-up Saldo</Label>
+            <StackLayout Padding="0" Orientation="Vertical" Margin="0, 20, 0, 20" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                <Label x:Name="bankLabel" FontSize="Header"  FontAttributes="Bold" TextColor="Black">Bank</Label>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1">
+            <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" BackgroundColor="#355377" VerticalOptions="FillAndExpand" Padding="20,10, 20, 40" Margin="10, 30">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label FontSize="Medium" FontAttributes="Bold">Petunjuk Pembayaran</Label>
+                    <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 10, 0, 10"/>
+
+                    <Label FontSize="Small">No. Virtual Account</Label>
+                    <Entry 
+                        x:Name="virtualAccountEntry"
+                        BackgroundColor="White" 
+                        TextColor="Black" 
+                        Keyboard="Numeric"
+                        IsEnabled="False"
+                    />
+
+                    <Label FontSize="Small">Batas Waktu Pembayaran</Label>
+                    <Label x:Name="timeLimitLabel" FontSize="Medium">{Time Limit}</Label>
+
+                    <Label FontSize="Small">Total Nominal Pembayaran</Label>
+                    <Label x:Name="nominalLabel" FontSize="Medium">{Nominal}</Label>
+
+                    <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 10, 0, 10"/>
+
+                    <Button 
+                        CornerRadius="5" 
+                        Text="Kembali" 
+                        BackgroundColor="#0043FC" 
+                        FontSize="Small" 
+                        Margin="10"
+                        Padding="10"
+                        Clicked="BackButton_Clicked"
+                    />
+
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

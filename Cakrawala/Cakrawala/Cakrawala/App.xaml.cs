@@ -9,6 +9,9 @@ namespace Cakrawala
     public partial class App : Application
     {
         public static AuthService authService = new AuthService();
+        public static TransferService transferService = new TransferService();
+        public static TopupService topupService = new TopupService();
+        public static DashboardService dashboardService = new DashboardService();
 
         public App()
         {
