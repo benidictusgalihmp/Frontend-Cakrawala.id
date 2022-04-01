@@ -1,4 +1,4 @@
-﻿using Cakrawala.Models;
+using Cakrawala.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +43,11 @@ namespace Cakrawala.Views
         private async void ProfileButton_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//profile");
+        }
+
+        private async void HistoryButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//history");
         }
 
         private async void TransferButton_Clicked(object sender, EventArgs e)

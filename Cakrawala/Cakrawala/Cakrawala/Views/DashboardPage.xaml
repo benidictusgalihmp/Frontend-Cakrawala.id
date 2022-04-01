@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cakrawala.Views.DashboardPage"
@@ -64,7 +64,7 @@
         <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10" Grid.Column="1" Padding="30">
             <Button Grid.Row="0" Grid.Column="0" Text="Scan" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
             <Button Grid.Row="0" Grid.Column="1" Text="Topup" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="TopupButton_Clicked"/>
-            <Button Grid.Row="1" Grid.Column="0" Text="History" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
+            <Button Grid.Row="1" Grid.Column="0" Text="History" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="HistoryButton_Clicked"/>
             <Button Grid.Row="1" Grid.Column="1" Text="Transfer" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="TransferButton_Clicked"/>
         </Grid>
     </Grid>
