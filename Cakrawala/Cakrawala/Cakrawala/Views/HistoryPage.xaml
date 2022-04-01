@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             x:Class="Cakrawala.Views.HistoryPage"
+             BackgroundColor="#D1DFEF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0"
+              Grid.Row="0"
+              Margin="120, 50, 36, 25">
+            
+            <StackLayout>
+                <StackLayout
+                    HorizontalOptions="Center">
+                    <Label FontSize="80" 
+                           TextColor="#082E58" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           >Cakrawala</Label>
+                    <Label FontSize="40" 
+                           TextColor="#082E58" 
+                           LineHeight="0"
+                           HorizontalTextAlignment="Center"
+                           >Riwayat Transaksi</Label>        
+                </StackLayout>
+                <Label FontSize="30"
+                       Margin="0, 70, 0, 15"
+                       TextColor="#082E58"
+                       >Pilih Tanggal Transaksi</Label>
+                <RadioButton Margin="0, 0, 0, 5"
+                             Padding="15, 0, 0, 0"
+                             IsChecked="True"
+                             BackgroundColor="#38567A"
+                             CornerRadius="15">
+                    <RadioButton.Content>
+                        <StackLayout Margin="15, 0, 15, 0"
+                                     Padding="15">
+                            <Label Margin="0,0,0,5"
+                                   FontSize="24"
+                                   FontAttributes="Bold">7 hari terakhir</Label>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="18">3 Mar 2022</Label>
+                                <Label FontSize="18">-</Label>
+                                <Label FontSize="18">24 Feb 2022</Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Margin="0, 0, 0, 5"
+                             Padding="15, 0, 0, 0"
+                             BackgroundColor="#38567A"
+                             CornerRadius="15">
+                    <RadioButton.Content>
+                        <StackLayout Margin="15, 0, 15, 0"
+                                     Padding="15">
+                            <Label Margin="0,0,0,5"
+                                   FontSize="24"
+                                   FontAttributes="Bold">30 hari terakhir</Label>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="18">3 Mar 2022</Label>
+                                <Label FontSize="18">-</Label>
+                                <Label FontSize="18">1 Feb 2022</Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Margin="0, 0, 0, 5"
+                             Padding="15, 0, 0, 0"
+                             BackgroundColor="#38567A"
+                             CornerRadius="15">
+                    <RadioButton.Content>
+                        <StackLayout Margin="15, 0, 15, 0"
+                                     Padding="15"
+                                     Orientation="Horizontal">
+                            <StackLayout>
+                                <Label FontSize="18">Dari</Label>
+                                <Frame Padding="0" CornerRadius="7">
+                                    <Entry FontSize="18"
+                                       FontAttributes="Bold"
+                                       WidthRequest="185"
+                                       HeightRequest="80"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       TextColor="#082E58"
+                                       Placeholder="1 Jan 2022"
+                                       PlaceholderColor="#355377"
+                                       BackgroundColor="White"></Entry>
+                                </Frame>                                
+                            </StackLayout>
+                            <StackLayout Margin="70,0,0,0">
+                                <Label FontSize="18">Sampai</Label>
+                                <Frame Padding="0" CornerRadius="7">
+                                    <Entry FontSize="18"
+                                       FontAttributes="Bold"
+                                       WidthRequest="185"
+                                       HeightRequest="80"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       TextColor="#082E58"
+                                       Placeholder="3 Mar 2022"
+                                       PlaceholderColor="#355377"
+                                       BackgroundColor="White"></Entry>
+                                </Frame>                                
+                            </StackLayout>
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Column="1"
+              Grid.Row="0"
+              Margin="36, 50, 50, 25">
+            <Frame BackgroundColor="#38567A"
+                   CornerRadius="15">
+                <ScrollView>
+                    <StackLayout>
+                        <Label FontSize="24"
+                               Margin="40,25,0,0"
+                               TextColor="White">Kamis, 3 Mar 2022</Label>
+                        <Frame Margin="25,15,0,0" 
+                               BackgroundColor="White"
+                               CornerRadius="15">
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="24"
+                                       TextColor="#082E58"
+                                       FontAttributes="Bold"
+                                       >Dibayar ke Warung Geprek</Label>
+                                <Label FontSize="24"
+                                       TextColor="#CE0000"
+                                       Margin="150,0,0,0"
+                                       VerticalOptions="Center">-Rp10.000</Label>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BayarHistTrans_Tapped" NumberOfTapsRequired="1"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Label FontSize="24"
+                               Margin="40,25,0,0"
+                               TextColor="White">Senin, 28 Feb 2022</Label>
+                        <Frame Margin="25,15,0,0" 
+                               BackgroundColor="White"
+                               CornerRadius="15">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label FontSize="24"
+                                       TextColor="#082E58"
+                                       FontAttributes="Bold"
+                                       >Isi ulang saldo</Label>
+                                    <Label FontSize="18"
+                                       TextColor="#082E58"
+                                       >Bank BCA</Label>
+                                </StackLayout>                                
+                                <Label FontSize="24"
+                                       TextColor="#00CE3A"
+                                       Margin="270,0,0,0"
+                                       VerticalOptions="Center">+Rp100.000</Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Margin="25,15,0,0" 
+                               BackgroundColor="White"
+                               CornerRadius="15">
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="24"
+                                       TextColor="#082E58"
+                                       FontAttributes="Bold"
+                                       >Dikirim ke Udin</Label>
+                                <Label FontSize="24"
+                                       TextColor="#CE0000"
+                                       Margin="275,0,0,0"
+                                       VerticalOptions="Center">-Rp20.000</Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Margin="25,15,0,0" 
+                               BackgroundColor="White"
+                               CornerRadius="15">
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="24"
+                                       TextColor="#082E58"
+                                       FontAttributes="Bold"
+                                       >Diterima dari Bambang</Label>
+                                <Label FontSize="24"
+                                       TextColor="#00CE3A"
+                                       Margin="170,0,0,0"
+                                       VerticalOptions="Center">+Rp100.000</Label>
+                            </StackLayout>
+                        </Frame>
+                        <Label FontSize="24"
+                               Margin="40,25,0,0"
+                               TextColor="White">Kamis, 3 Feb 2022</Label>
+                        <Frame Margin="25,15,0,0" 
+                               BackgroundColor="White"
+                               CornerRadius="15">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label FontSize="24"
+                                       TextColor="#082E58"
+                                       FontAttributes="Bold"
+                                       >Isi ulang saldo</Label>
+                                    <Label FontSize="18"
+                                       TextColor="#082E58"
+                                       >Kode Voucher</Label>
+                                </StackLayout>
+                                <Label FontSize="24"
+                                       TextColor="#00CE3A"
+                                       Margin="270,0,0,0"
+                                       VerticalOptions="Center">+Rp100.000</Label>
+                            </StackLayout>
+                        </Frame>
+                        <Label FontSize="24"
+                               Margin="40,25,0,0"
+                               TextColor="White">Rabu, 2 Feb 2022</Label>
+                        <Frame Margin="25,15,0,0" 
+                               BackgroundColor="White"
+                               CornerRadius="15">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label FontSize="24"
+                                       TextColor="#082E58"
+                                       FontAttributes="Bold"
+                                       >Isi ulang saldo</Label>
+                                    <Label FontSize="18"
+                                       TextColor="#082E58"
+                                       >Kode Voucher</Label>
+                                </StackLayout>
+                                <Label FontSize="24"
+                                       TextColor="#00CE3A"
+                                       Margin="280,0,0,0"
+                                       VerticalOptions="Center">+Rp50.000</Label>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

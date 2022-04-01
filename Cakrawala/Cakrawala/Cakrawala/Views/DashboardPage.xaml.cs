@@ -33,5 +33,10 @@ namespace Cakrawala.Views
         {
             await Shell.Current.GoToAsync("//profile");
         }
+
+        private async void HistoryButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//history");
+        }
     }
 }

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cakrawala.Views.PayHistoryPage"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#D1DFEF">
+    <Frame BackgroundColor="#38567A"
+           CornerRadius="15"
+           Margin="270,30,270,30">
+        <StackLayout Margin="100,50,100,15">
+            <Label FontSize="48"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   >Rp10.000</Label>
+            <Label FontSize="24"
+                   HorizontalOptions="Center">Dibayar ke Warung Geprek</Label>
+            <Label FontSize="36"
+                   FontAttributes="Bold"
+                   Margin="0,75,0,0">Detail Transaksi</Label>
+            <Grid>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="24">Waktu</Label>
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       FontSize="24">10:47 AM</Label>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontSize="24">Tanggal</Label>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       FontSize="24">28 Feb 2022</Label>
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       FontSize="24">ID Transaksi</Label>
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       FontSize="24">104728022022001</Label>
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       FontSize="24">Jumlah</Label>
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       FontSize="24"
+                       >Rp10.000</Label>
+                <Label Grid.Row="4"
+                       Grid.Column="0"
+                       FontSize="36"
+                       FontAttributes="Bold">Total</Label>
+                <Label Grid.Row="4"
+                       Grid.Column="1"
+                       FontSize="36"
+                       FontAttributes="Bold">Rp10.000</Label>
+            </Grid>
+            <Frame BackgroundColor="#4D7EFF"
+                       Margin="0,20,0,0">
+                <Label HorizontalOptions="Center"
+                       FontSize="25">Kembali</Label>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackTaptoRiwayat" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </StackLayout>
+    </Frame>
+</ContentPage>
