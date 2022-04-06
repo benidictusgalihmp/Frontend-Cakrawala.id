@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,17 +7,22 @@ namespace Cakrawala.Models
 {
     public class User
     {
+        [JsonProperty(PropertyName = "id")]
         public string userId { get; set; }
+
+        [JsonProperty(PropertyName = "username")]
         public string userName { get; set; }
         public string password { get; set; }
+
+        [JsonProperty(PropertyName = "display_name")]
         public string displayName { get; set; }
         public string email { get; set; }
         public int balance { get; set; }
         public int exp { get; set; }
-        public int level { get; set; }
+        public string level { get; set; }
         public LoginType loginType { get; set; }
 
-        public User(string userId, string userName, string password, string displayName, string email, int balance, int exp, int level, LoginType loginType)
+        public User(string userId, string userName, string password, string displayName, string email, int balance, int exp, string level, LoginType loginType)
         {
             this.userId = userId;
             this.userName = userName;
@@ -52,7 +58,7 @@ namespace Cakrawala.Models
             email = "";
             balance = 0;
             exp = 0;
-            level = 0;
+            level = "";
             loginType = 0;
         }
     }
