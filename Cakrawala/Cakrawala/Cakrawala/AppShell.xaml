@@ -21,6 +21,7 @@
     </FlyoutItem>
     <FlyoutItem Title="Riwayat Transaksi">
         <ShellContent x:Name="historyPage" Title="History" Route="history" ContentTemplate="{DataTemplate views:HistoryPage}"/>
+    </FlyoutItem>
     <FlyoutItem Title="Transfer">
         <ShellContent x:Name="transferPage" Route="transfer" Title="Transfer" ContentTemplate="{DataTemplate views:TransferPage}" />
     </FlyoutItem>

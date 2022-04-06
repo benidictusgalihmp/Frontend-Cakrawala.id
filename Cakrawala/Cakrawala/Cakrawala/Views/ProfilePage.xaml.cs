@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cakrawala.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,17 @@ namespace Cakrawala.Views
         public ProfilePage()
         {
             InitializeComponent();
+            RetrieveUserData();
+        }
+
+        public async void RetrieveUserData()
+        {
+            string userId = Application.Current.Properties["userId"].ToString();
+
+            User userData = await App.profileService.ViewProfileAsync(userId);
+            namaProfile.Text = userData.displayName != "" ? userData.displayName : "{Name}";
+            usernameProfile.Text = userData.userName != "" ? userData.userName : "{User Name}";
+            emailProfile.Text = userData.email != "" ? userData.email : "{Email}";
         }
 
         private async void UpdateButton_Clicked(object sender, EventArgs e)

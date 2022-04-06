@@ -12,11 +12,11 @@ namespace Cakrawala
         public static TransferService transferService = new TransferService();
         public static TopupService topupService = new TopupService();
         public static DashboardService dashboardService = new DashboardService();
+        public static ProfileService profileService = new ProfileService();
 
         public App()
         {
             InitializeComponent();
-
             MainPage = new AppShell();
         }
 
