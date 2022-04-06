@@ -19,9 +19,9 @@ namespace Cakrawala.Data
             client = new HttpClient();
         }
 
-        public async Task<User> DashboardAsync()
+        public async Task<User> DashboardAsync(string userId)
         {
-            Uri uri = new Uri(string.Format(Constants.RestUrl + "users", string.Empty));
+            Uri uri = new Uri(string.Format(Constants.RestUrl + "users/" + userId, string.Empty));
             User dashResp = new User();
 
             try

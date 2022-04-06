@@ -21,7 +21,9 @@ namespace Cakrawala.Views
 
         private async void RetrieveUserData()
         {
-            User userData = await App.dashboardService.DashboardAsync();
+            string userId = Application.Current.Properties["userId"].ToString();
+
+            User userData = await App.dashboardService.DashboardAsync(userId);
             userNameLabel.Text = userData.displayName != "" ? userData.displayName : "{User Name}";
             lvlLabel.Text = "LVL " + userData.level.ToString();
             expLabel.Text = "EXP " + userData.exp.ToString();

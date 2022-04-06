@@ -40,6 +40,7 @@
                 </StackLayout>
                 <AbsoluteLayout BackgroundColor="#FFCC4A" MinimumWidthRequest="10" MinimumHeightRequest="10" Padding="5">
                     <BoxView BackgroundColor="#FFB800" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All"/>
+                    <!--
                     <Frame 
                         AbsoluteLayout.LayoutBounds=".5,-2,100,30" 
                         AbsoluteLayout.LayoutFlags="PositionProportional" 
@@ -50,12 +51,13 @@
                     >
                         <Label x:Name="rankLabel" HorizontalTextAlignment="Center" BackgroundColor="#FFB800">{Rank}</Label>
                     </Frame>
+                    -->
                     <Label 
                         x:Name="nominalLabel"
-                        AbsoluteLayout.LayoutBounds=".5,1,1,1" 
+                        AbsoluteLayout.LayoutBounds=".5,0,1,1" 
                         AbsoluteLayout.LayoutFlags="All" 
                         HorizontalTextAlignment="Center"
-                        VerticalTextAlignment="End"
+                        VerticalTextAlignment="Center"
                         FontSize="Medium"
                     >{Nominal}</Label>
                 </AbsoluteLayout>
