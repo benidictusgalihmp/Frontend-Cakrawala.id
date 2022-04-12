@@ -19,7 +19,7 @@ namespace Cakrawala
         private async void LogoutItem_Clicked(object sender, System.EventArgs e)
         {
             // Handle Logout
-            Application.Current.Properties["token"] = null;
+            App.authService.Logout();
             await Shell.Current.GoToAsync("//login");
         }
     }
