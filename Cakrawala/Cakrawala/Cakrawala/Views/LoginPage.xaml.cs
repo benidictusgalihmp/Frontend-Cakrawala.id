@@ -30,7 +30,6 @@ namespace Cakrawala.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine(Application.Current.Properties["username"]);
             Debug.WriteLine(Application.Current.Properties["token"]);
             this.errorText.Text = String.Empty;
 
@@ -53,7 +52,6 @@ namespace Cakrawala.Views
 
             Debug.WriteLine("ID: "+ response.id);
 
-            Application.Current.Properties["username"] = response.username;
             Application.Current.Properties["userId"] = response.id;
             Application.Current.Properties["token"] = response.jwtToken;
             await Shell.Current.GoToAsync($"//dashboard");

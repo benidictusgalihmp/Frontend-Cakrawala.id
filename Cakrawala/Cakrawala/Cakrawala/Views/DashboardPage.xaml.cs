@@ -15,7 +15,12 @@ namespace Cakrawala.Views
         public DashboardPage()
         {
             InitializeComponent();
-            userNameLabel.Text = Application.Current.Properties["username"].ToString();
+            // userNameLabel.Text = Application.Current.Properties["username"].ToString();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             RetrieveUserData();
         }
 
@@ -24,6 +29,19 @@ namespace Cakrawala.Views
             string userId = Application.Current.Properties["userId"].ToString();
 
             User userData = await App.dashboardService.DashboardAsync(userId);
+
+            if (userData == null)
+            {
+                await DisplayAlert(
+                    "Connection Error",
+                    "Cannot connect to the system, please check your connection or contact our administrator.",
+                    "Logout");
+
+                App.authService.Logout();
+                await Shell.Current.GoToAsync("//login");
+                return;
+            }
+
             userNameLabel.Text = userData.displayName != "" ? userData.displayName : "{User Name}";
             lvlLabel.Text = "LVL " + userData.level.ToString();
             expLabel.Text = "EXP " + userData.exp.ToString();
