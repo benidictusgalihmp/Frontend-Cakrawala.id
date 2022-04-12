@@ -22,7 +22,7 @@ namespace Cakrawala.Data
         public async Task<User> DashboardAsync(string userId)
         {
             Uri uri = new Uri(string.Format(Constants.RestUrl + "users/" + userId, string.Empty));
-            User dashResp = new User();
+            User dashResp = null;
 
             try
             {
@@ -42,7 +42,7 @@ namespace Cakrawala.Data
             catch (Exception ex)
             {
                 Debug.WriteLine("Error" + ex.Message);
-                dashResp.userId = "error";
+                return null;
             }
 
             return dashResp;

@@ -23,13 +23,13 @@ namespace Cakrawala.Data
                 .Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<bool> TransferAsync(string receiverId, int nominal)
+        public async Task<TransferResponse> TransferAsync(uint senderId, uint receiverId, uint nominal)
         {
-            Uri uri = new Uri(string.Format(Constants.LocalRestUrl + "transfer", string.Empty));
-            bool output = false;
+            Uri uri = new Uri(string.Format(Constants.RestUrl + "transfer", string.Empty));
+            TransferResponse output = null;
             try
             {
-                string json = JsonConvert.SerializeObject(new TransferRequest(receiverId, nominal));
+                string json = JsonConvert.SerializeObject(new TransferRequest(senderId, receiverId, nominal));
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
@@ -42,7 +42,8 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     Debug.WriteLine("Success Transfer");
-                    output = true;
+                    string rawResp = await response.Content.ReadAsStringAsync();
+                    output = JsonConvert.DeserializeObject<TransferResponse>(rawResp);
                 }
 
                 Debug.WriteLine(response.ToString());
@@ -90,24 +91,63 @@ namespace Cakrawala.Data
 
         private class TransferRequest
         {
-            public string receiverId { get; set; }
-            public int nominal { get; set; }
+            [JsonProperty(PropertyName = "FromUserId")]
+            public uint senderId { get; set; }
 
-            public TransferRequest(string _receiverId, int _nominal)
+            [JsonProperty(PropertyName = "ToUserId")]
+            public uint receiverId { get; set; }
+
+            [JsonProperty(PropertyName = "amount")]
+            public uint nominal { get; set; }
+
+            public TransferRequest(uint _senderId, uint _receiverId, uint _nominal)
             {
+                senderId= _senderId;
                 receiverId = _receiverId;
                 nominal = _nominal;
             }
         }
 
-        private class TransferResponse
+        public class TransferResponse
         {
-            public Boolean success { get; set; }
-
-            public TransferResponse(Boolean _success)
+            public class UserDTO
             {
-                success = _success;
+                [JsonProperty(PropertyName = "id")]
+                public uint Id { get; set; }
+
+                [JsonProperty(PropertyName = "username")]
+                public string UserName { get; set; } = string.Empty;
+
+                [JsonProperty(PropertyName = "email")]
+                public string Email { get; set; } = string.Empty;
+
+                [JsonProperty(PropertyName = "previous_balance")]
+                public uint PreviousBalance { get; set; }
+
+                [JsonProperty(PropertyName = "current_balance")]
+                public uint CurrentBalance { get; set; }
             }
+
+            [JsonProperty(PropertyName = "id")]
+            public uint Id { get; set; }
+
+            [JsonProperty(PropertyName = "created_at")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty(PropertyName = "updated_at")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty(PropertyName = "from")]
+            public UserDTO From { get; set; }
+
+            [JsonProperty(PropertyName = "to")]
+            public UserDTO To { get; set; }
+
+            [JsonProperty(PropertyName = "amount")]
+            public int Amount { get; set; }
+
+            [JsonProperty(PropertyName = "status")]
+            public string Status { get; set; }
         }
     }
 }
