@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cakrawala.Views.HistoryPage"
              BackgroundColor="#D1DFEF">
     <Grid>
@@ -41,9 +41,11 @@
                                    FontSize="24"
                                    FontAttributes="Bold">7 hari terakhir</Label>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="18">3 Mar 2022</Label>
+                                <Label x:Name="todayDateWeek"
+                                    FontSize="18">3 Mar 2022</Label>
                                 <Label FontSize="18">-</Label>
-                                <Label FontSize="18">24 Feb 2022</Label>
+                                <Label x:Name="oneWeekDate"
+                                    FontSize="18">24 Feb 2022</Label>
                             </StackLayout>
                         </StackLayout>
                     </RadioButton.Content>
@@ -59,9 +61,11 @@
                                    FontSize="24"
                                    FontAttributes="Bold">30 hari terakhir</Label>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="18">3 Mar 2022</Label>
+                                <Label x:Name="todayDateMonth"
+                                    FontSize="18">3 Mar 2022</Label>
                                 <Label FontSize="18">-</Label>
-                                <Label FontSize="18">1 Feb 2022</Label>
+                                <Label x:Name="oneMonthDate"
+                                    FontSize="18">1 Feb 2022</Label>
                             </StackLayout>
                         </StackLayout>
                     </RadioButton.Content>
@@ -77,7 +81,8 @@
                             <StackLayout>
                                 <Label FontSize="18">Dari</Label>
                                 <Frame Padding="0" CornerRadius="7">
-                                    <Entry FontSize="18"
+                                    <Entry x:Name="entryDateFrom"
+                                       FontSize="18"
                                        FontAttributes="Bold"
                                        WidthRequest="185"
                                        HeightRequest="80"
@@ -92,7 +97,8 @@
                             <StackLayout Margin="70,0,0,0">
                                 <Label FontSize="18">Sampai</Label>
                                 <Frame Padding="0" CornerRadius="7">
-                                    <Entry FontSize="18"
+                                    <Entry x:Name="entryDateTo"
+                                       FontSize="18"
                                        FontAttributes="Bold"
                                        WidthRequest="185"
                                        HeightRequest="80"
@@ -114,7 +120,37 @@
               Margin="36, 50, 50, 25">
             <Frame BackgroundColor="#38567A"
                    CornerRadius="15">
-                <ScrollView>
+                <ListView ItemsSource="">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="25,15,0,0" 
+                                       BackgroundColor="White"
+                                       CornerRadius="15">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image x:Name="imgTransactionType"
+                                            Source=""/>
+                                        <StackLayout>
+                                            <Label x:Name="transactionType"
+                                                FontSize="24"
+                                                TextColor="#082E58"
+                                                FontAttributes="Bold"/>
+                                            <Label x:Name="topupMerchant"
+                                                FontSize="18"
+                                                TextColor="#082E58"/>
+                                        </StackLayout>
+                                        <Label x:Name="saldoAmount"
+                                            FontSize="24"
+                                            TextColor="#00CE3A"
+                                            Margin="270,0,0,0"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<ScrollView>
                     <StackLayout>
                         <Label FontSize="24"
                                Margin="40,25,0,0"
@@ -231,7 +267,7 @@
                             </StackLayout>
                         </Frame>
                     </StackLayout>
-                </ScrollView>
+                </ScrollView>-->
             </Frame>
         </Grid>
     </Grid>
