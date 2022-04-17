@@ -33,7 +33,7 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string rawResp = await response.Content.ReadAsStringAsync();
-                    viewProfileResp = JsonConvert.DeserializeObject<User>(rawResp);
+                    viewProfileResp = JsonConvert.DeserializeObject<ResponseWrapper<User>>(rawResp).data;
                 }
             }
             catch (Exception ex)
@@ -58,7 +58,11 @@ namespace Cakrawala.Data
                 string json = JsonConvert.SerializeObject(new UpdateUsernameFormat(newUsername));
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 Debug.WriteLine(json);
-                HttpResponseMessage response = await client.PostAsync(uri, content);
+
+                HttpRequestMessage request = new HttpRequestMessage(new HttpMethod("PATCH"), uri);
+                request.Content = content;
+                request.Headers.Add("Authorization", $"Bearer {Application.Current.Properties["token"]}");
+                HttpResponseMessage response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -88,15 +92,21 @@ namespace Cakrawala.Data
                 string json = JsonConvert.SerializeObject(new UpdatePasswordFormat(newUpdatePassword, oldUpdatePassword));
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await client.PostAsync(uri, content);
+                HttpRequestMessage request = new HttpRequestMessage(new HttpMethod("PATCH"), uri);
+                request.Content = content;
+                request.Headers.Add("Authorization", $"Bearer {Application.Current.Properties["token"]}");
+                HttpResponseMessage response = await client.SendAsync(request);
+
+                Debug.WriteLine(json);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Success Change Password");
+                    Debug.WriteLine("Success Change Password");
                     output = true;
                 } else
                 {
-                    Console.WriteLine("Gagal mengubah password");
+                    Debug.WriteLine(response.ToString());
+                    Debug.WriteLine("Gagal mengubah password");
                     return output;
                 }
 

@@ -16,6 +16,11 @@ namespace Cakrawala.Views
         public ProfilePage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             RetrieveUserData();
         }
 

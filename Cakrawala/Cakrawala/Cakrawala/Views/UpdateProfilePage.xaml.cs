@@ -17,6 +17,11 @@ namespace Cakrawala.Views
         public UpdateProfilePage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             RetrieveUserData();
             resetState();
         }
@@ -26,7 +31,7 @@ namespace Cakrawala.Views
             string userId = Application.Current.Properties["userId"].ToString();
 
             User userData = await App.profileService.ViewProfileAsync(userId);
-            entryUpdateUsername.Placeholder = userData.userName != "" ? userData.userName : "{User Name}";
+            entryUpdateUsername.Placeholder = userData.displayName != "" ? userData.displayName : "{User Name}";
         }
         private void resetState()
         {
@@ -51,7 +56,7 @@ namespace Cakrawala.Views
             if (newUsername.Length > 25)
             {
                 updateUsernameErrMsg.Text = "Panjang username tidak boleh melebihi 25 karakter";
-            } else if (!newUsername.All(char.IsLetterOrDigit) ||
+            } else if (newUsername.All(char.IsLetterOrDigit) ||
                     !newUsername.All(char.IsWhiteSpace))
             {
                 updateUsernameErrMsg.Text = "Hanya huruf dan angka yang diperbolehkan dan tanpa spasi.";
