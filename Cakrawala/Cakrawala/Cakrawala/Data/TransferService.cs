@@ -25,7 +25,7 @@ namespace Cakrawala.Data
 
         public async Task<TransferResponse> TransferAsync(uint senderId, uint receiverId, uint nominal)
         {
-            Uri uri = new Uri(string.Format(Constants.RestUrl + "transfer", string.Empty));
+            Uri uri = new Uri(string.Format(Constants.RestUrl + "transactions", string.Empty));
             TransferResponse output = null;
             try
             {
@@ -43,7 +43,7 @@ namespace Cakrawala.Data
                 {
                     Debug.WriteLine("Success Transfer");
                     string rawResp = await response.Content.ReadAsStringAsync();
-                    output = JsonConvert.DeserializeObject<TransferResponse>(rawResp);
+                    output = JsonConvert.DeserializeObject<ResponseWrapper<TransferResponse>>(rawResp).data;
                 }
 
                 Debug.WriteLine(response.ToString());
@@ -56,9 +56,9 @@ namespace Cakrawala.Data
             return output;
         }
 
-        public async Task<User> FindUserAsync(string userId)
+        public async Task<User> FindUserAsync(string username)
         {
-            Uri uri = new Uri(string.Format(Constants.RestUrl + $"users?userId={userId}", string.Empty));
+            Uri uri = new Uri(string.Format(Constants.RestUrl + $"users/check/{username}", string.Empty));
             User userResp = null;
 
             try
@@ -73,7 +73,7 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string rawResp = await response.Content.ReadAsStringAsync();
-                    userResp = JsonConvert.DeserializeObject<User>(rawResp);
+                    userResp = JsonConvert.DeserializeObject<ResponseWrapper<User>>(rawResp).data;
                 }
             }
             catch (Exception ex)

@@ -86,7 +86,7 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string rawLogResp = await response.Content.ReadAsStringAsync();
-                    logResp = JsonConvert.DeserializeObject<LoginResponse>(rawLogResp);
+                    logResp = JsonConvert.DeserializeObject<ResponseWrapper<LoginResponse>>(rawLogResp).data;
 
                     Debug.WriteLine(logResp.username);
                     Debug.WriteLine("Login Successful");

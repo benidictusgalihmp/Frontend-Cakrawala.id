@@ -18,26 +18,26 @@ namespace Cakrawala.Data
             client = new HttpClient();
         }
 
-        public async Task<VoucherTopupResponse> TopupAsync(string voucherCode)
+        public async Task<VoucherTopupResponse> TopupVoucherAsync(uint userId, string voucherCode)
         {
-            Uri uri = new Uri(string.Format(Constants.RestUrl + $"topup/{voucherCode}", string.Empty));
+            Uri uri = new Uri(string.Format(Constants.RestUrl + $"topup/users/{userId}/voucher/use", string.Empty));
             VoucherTopupResponse output = null;
             try
             {
-                // string json = JsonConvert.SerializeObject(new TopupRequest(voucherCode));
-                // StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                string json = JsonConvert.SerializeObject(new TopupRequest(voucherCode));
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, uri);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
+                request.Content = content;
                 request.Headers.Add("Authorization", $"Bearer {Application.Current.Properties["token"]}");
-                HttpResponseMessage response = await client.SendAsync(request);
 
-                // HttpResponseMessage response = await client.PostAsync(uri, content);
+                HttpResponseMessage response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
                     Debug.WriteLine("Success Topup");
                     string rawResp = await response.Content.ReadAsStringAsync();
-                    output = JsonConvert.DeserializeObject<VoucherTopupResponse>(rawResp);
+                    output = JsonConvert.DeserializeObject<ResponseWrapper<VoucherTopupResponse>>(rawResp).data;
                 }
 
                 Debug.WriteLine(response.ToString());
@@ -51,9 +51,10 @@ namespace Cakrawala.Data
             return output;
         }
 
-        /*
+
         private class TopupRequest
         {
+            [JsonProperty(PropertyName = "voucher_code")]
             public string voucherCode { get; set; }
 
             public TopupRequest(string _voucherCode)
@@ -61,21 +62,11 @@ namespace Cakrawala.Data
                 voucherCode = _voucherCode;
             }
         }
-        */
 
         public class VoucherTopupResponse
         {
-            [JsonProperty(PropertyName = "id")]
-            public uint Id { get; set; }
-
-            [JsonProperty(PropertyName = "code")]
-            public string Code { get; set; }
-
             [JsonProperty(PropertyName = "amount")]
             public uint Amount { get; set; }
-
-            [JsonProperty(PropertyName = "is_used")]
-            public bool IsUsed { get; set; }
         }
     }
 }

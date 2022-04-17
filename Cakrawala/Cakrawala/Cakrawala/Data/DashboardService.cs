@@ -22,7 +22,7 @@ namespace Cakrawala.Data
         public async Task<User> DashboardAsync(string userId)
         {
             Uri uri = new Uri(string.Format(Constants.RestUrl + "users/" + userId, string.Empty));
-            User dashResp = null;
+            User dashResp = new User();
 
             try
             {
@@ -36,8 +36,8 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string rawResp = await response.Content.ReadAsStringAsync();
-                    dashResp = JsonConvert.DeserializeObject<User>(rawResp);
-                }
+                    dashResp = JsonConvert.DeserializeObject<ResponseWrapper<User>>(rawResp).data;
+                } 
             }
             catch (Exception ex)
             {
