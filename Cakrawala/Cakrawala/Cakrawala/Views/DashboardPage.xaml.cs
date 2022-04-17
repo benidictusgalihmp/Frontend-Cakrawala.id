@@ -15,7 +15,12 @@ namespace Cakrawala.Views
         public DashboardPage()
         {
             InitializeComponent();
-            userNameLabel.Text = Application.Current.Properties["username"].ToString();
+            // userNameLabel.Text = Application.Current.Properties["username"].ToString();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             RetrieveUserData();
         }
 
@@ -24,6 +29,28 @@ namespace Cakrawala.Views
             string userId = Application.Current.Properties["userId"].ToString();
 
             User userData = await App.dashboardService.DashboardAsync(userId);
+
+            if (userData == null)
+            {
+                await DisplayAlert(
+                    "Koneksi Error",
+                    "Tidak dapat tersambung ke server, silakan cek koneksi anda dan coba lagi. Apabila masalah tetap terjadi, silakan kontak administrator.",
+                    "Keluar");
+
+                System.Environment.Exit(0);
+                return;
+            } else if (userData.userId == "")
+            {
+                await DisplayAlert(
+                    "Token Kadaluarsa",
+                    "Anda telah tidak aktif dalam waktu yang terlalu lama, silakan login ulang untuk memperbarui token.",
+                    "Logout");
+
+                App.authService.Logout();
+                await Shell.Current.GoToAsync("//login");
+                return;
+            }
+
             userNameLabel.Text = userData.displayName != "" ? userData.displayName : "{User Name}";
             lvlLabel.Text = "LVL " + userData.level.ToString();
             expLabel.Text = "EXP " + userData.exp.ToString();

@@ -54,6 +54,12 @@ namespace Cakrawala.Data
             return output;
         }
 
+        public void Logout()
+        {
+            Application.Current.Properties["token"] = null;
+            Application.Current.Properties["userId"] = null;
+        }
+
         public async Task<LoginResponse> LoginAsync(string email, string password)
         {
             Uri uri = new Uri(string.Format(Constants.RestUrl + "users/login", string.Empty));
@@ -80,7 +86,7 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string rawLogResp = await response.Content.ReadAsStringAsync();
-                    logResp = JsonConvert.DeserializeObject<LoginResponse>(rawLogResp);
+                    logResp = JsonConvert.DeserializeObject<ResponseWrapper<LoginResponse>>(rawLogResp).data;
 
                     Debug.WriteLine(logResp.username);
                     Debug.WriteLine("Login Successful");

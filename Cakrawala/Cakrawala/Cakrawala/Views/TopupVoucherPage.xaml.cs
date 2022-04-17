@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Cakrawala.Data.TopupService;
 
 namespace Cakrawala.Views
 {
@@ -19,14 +20,28 @@ namespace Cakrawala.Views
 
         private async void RedeemButton_Clicked(object sender, EventArgs e)
         {
-            bool res = await App.topupService.TopupAsync(this.redeemCode.Text);
-            if (res)
+            uint userId = UInt32.Parse(Application.Current.Properties["userId"].ToString());
+
+            VoucherTopupResponse res = await App.topupService.TopupVoucherAsync(userId, this.redeemCode.Text);
+
+            /*
+            if (res != null)
             {
                 this.errorFindUserNote.IsVisible = false;
                 await Shell.Current.GoToAsync("//dashboard");
             } else
             {
                 this.errorFindUserNote.IsVisible = true;
+            }
+            */
+
+            if (res == null)
+            {
+                await DisplayAlert("Error", "Terjadi kesalahan dalam melakukan Topup", "Ok");
+            }  else
+            {
+                await DisplayAlert("Sukses", $"Saldo anda telah bertambah sebanyak Rp{res.Amount}", "Ok");
+                await Shell.Current.GoToAsync("//dashboard");
             }
         }
 
