@@ -83,16 +83,13 @@ namespace Cakrawala.Views
             } else if (newPassword != confirmPassword)
             {
                 updatePasswordErrMsg.Text = "Password dan Konfirmasi Password tidak sama.";
-            } else if (oldPassword != oldPassword) // kurang tahu
-            {
-                updatePasswordErrMsg.Text = "Password lama salah.";
             }
 
-            bool status = await App.profileService.UpdatePasswordAsync(userId, newPassword);
+            bool status = await App.profileService.UpdatePasswordAsync(userId, oldPassword, newPassword);
 
             if (!status)
             {
-                updatePasswordErrMsg.Text = "Gagal mengubah password, tolong hubungi administrasi.";
+                updatePasswordErrMsg.Text = "Gagal mengubah password. Password lama yang Anda masukkan salah.";
                 return;
             }
             await Shell.Current.GoToAsync("//update");
