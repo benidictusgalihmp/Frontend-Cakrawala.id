@@ -82,7 +82,7 @@ namespace Cakrawala.Views
                 await DisplayAlert("Error", "Terdapat kesalahan dalam melakukan transfer", "Ok");
             } else
             {
-                await DisplayAlert("Sukses", $"Berhasil transfer Rp{res.Amount} ke pengguna bernama {res.To.UserName}", "Ok");
+                await DisplayAlert("Sukses", $"Berhasil transfer Rp{res.Amount} ke pengguna dengan username: \"{res.To.UserName}\"", "Ok");
                 await Shell.Current.GoToAsync("//dashboard");
             }
         }

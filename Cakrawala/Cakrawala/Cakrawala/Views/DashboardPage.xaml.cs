@@ -33,8 +33,17 @@ namespace Cakrawala.Views
             if (userData == null)
             {
                 await DisplayAlert(
-                    "Connection Error",
-                    "Cannot connect to the system, please check your connection or contact our administrator.",
+                    "Koneksi Error",
+                    "Tidak dapat tersambung ke server, silakan cek koneksi anda dan coba lagi. Apabila masalah tetap terjadi, silakan kontak administrator.",
+                    "Keluar");
+
+                System.Environment.Exit(0);
+                return;
+            } else if (userData.userId == "")
+            {
+                await DisplayAlert(
+                    "Token Kadaluarsa",
+                    "Anda telah tidak aktif dalam waktu yang terlalu lama, silakan login ulang untuk memperbarui token.",
                     "Logout");
 
                 App.authService.Logout();

@@ -20,7 +20,9 @@ namespace Cakrawala.Views
 
         private async void RedeemButton_Clicked(object sender, EventArgs e)
         {
-            VoucherTopupResponse res = await App.topupService.TopupAsync(this.redeemCode.Text);
+            uint userId = UInt32.Parse(Application.Current.Properties["userId"].ToString());
+
+            VoucherTopupResponse res = await App.topupService.TopupVoucherAsync(userId, this.redeemCode.Text);
 
             /*
             if (res != null)
@@ -35,11 +37,8 @@ namespace Cakrawala.Views
 
             if (res == null)
             {
-                await DisplayAlert("Error", "Tidak dapat tersambung ke internet", "Ok");
-            } else if (res.IsUsed == true)
-            {
-                await DisplayAlert("Expired", "Kode voucher telah dipakai", "Ok");
-            } else
+                await DisplayAlert("Error", "Terjadi kesalahan dalam melakukan Topup", "Ok");
+            }  else
             {
                 await DisplayAlert("Sukses", $"Saldo anda telah bertambah sebanyak Rp{res.Amount}", "Ok");
                 await Shell.Current.GoToAsync("//dashboard");
