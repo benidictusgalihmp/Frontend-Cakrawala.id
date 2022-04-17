@@ -43,28 +43,25 @@
                     <StackLayout
                     VerticalOptions="Center">
                         <Label
-                            FontSize="Medium">Nama*</Label>
-                        <Entry Placeholder="Nama"
-                               HeightRequest="40"
-                               Margin="0,0,0,10"
-                               BackgroundColor="White"
-                               TextColor="#082E58"
-                               PlaceholderColor="#5F83AA"/>
-                        <Label
                             FontSize="Medium">Username*</Label>
-                        <Entry Placeholder="Username"
+                        <Entry x:Name="entryUpdateUsername"
+                               Placeholder="Username"
                                HeightRequest="40"
                                Margin="0,0,0,25"
                                BackgroundColor="White"
                                TextColor="#082E58"
                                PlaceholderColor="#5F83AA"/>
-                        <Button Text="Simpan Nama"
+                        <Label x:Name="updateUsernameErrMsg"
+                            FontSize="Micro"
+                            TextColor="#FF6600"></Label>
+                        <Button Text="Simpan Username"
                                 FontSize="Medium"
                                 Margin="0,25,0,0"
                                 HeightRequest="60"
                                 BackgroundColor="#4D7EFF"
                                 TextColor="White"
-                                CornerRadius="8"/>
+                                CornerRadius="8"
+                                Clicked="SaveUsernameButton_Clicked"/>
                     </StackLayout>
                 </Frame>
                 <Frame
@@ -77,7 +74,8 @@
                     VerticalOptions="Center">
                         <Label
                             FontSize="Medium">Password lama*</Label>
-                        <Entry Placeholder="Masukkan password lama" 
+                        <Entry x:Name="entryUpdateOldPassword"
+                               Placeholder="Masukkan password lama" 
                                IsPassword="True"
                                HeightRequest="40"
                                Margin="0,0,0,10"
@@ -86,7 +84,8 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Password baru*</Label>
-                        <Entry Placeholder="Masukkan password baru" 
+                        <Entry x:Name="entryUpdateNewPassword"
+                               Placeholder="Masukkan password baru" 
                                IsPassword="True"
                                HeightRequest="40"
                                Margin="0,0,0,10"
@@ -95,104 +94,28 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Konfirmasi password</Label>
-                        <Entry Placeholder="Konfirmasi password" 
+                        <Entry x:Name="entryUpdateConfirmPassword"
+                               Placeholder="Konfirmasi password" 
                                IsPassword="True"
                                HeightRequest="40"
                                Margin="0,0,0,25"
                                BackgroundColor="White"
                                TextColor="#082E58"
                                PlaceholderColor="#5F83AA"/>
+                        <Label x:Name="updatePasswordErrMsg"
+                            FontSize="Micro"
+                            TextColor="#FF6600"></Label>
                         <Button Text="Simpan Password"
                                 FontSize="Medium"
                                 Margin="0,25,0,0"
                                 HeightRequest="60"
                                 BackgroundColor="#4D7EFF"
                                 TextColor="White"
-                                CornerRadius="8"/>
+                                CornerRadius="8"
+                                Clicked="SavePasswordButton_Clicked"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
         </ScrollView>
-        <!--<Grid Grid.Column="1" 
-              Grid.Row="0"
-              Margin="10, 50, 100, 0"
-              Padding="15,0,15,0">
-            <Frame
-                Grid.Row="0"
-                Padding="35,25,35,25"
-                CornerRadius="8"
-                BackgroundColor="#38567A">
-                <StackLayout
-                    VerticalOptions="Center">
-                    <Label 
-                        HorizontalTextAlignment="Center"
-                        Margin="0,0,0,10"
-                        FontSize="Large"
-                        FontAttributes="Bold">Nama</Label>
-                    <Label
-                        HorizontalTextAlignment="Center"
-                        FontSize="Medium">@username</Label>
-                    <Label
-                        HorizontalTextAlignment="Center"
-                        FontSize="Medium">email@email.com</Label>
-                </StackLayout>
-            </Frame>
-        </Grid> -->
     </Grid>
-    
-    
-        <!--<Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="150"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Frame Grid.Column="1">
-                <StackLayout>
-                    <Label>Pengaturan</Label>
-                    <Button Text="Profile" Clicked="ProfileButton_Clicked"/>
-                    <Button Text="Ubah Profile"/>
-                </StackLayout>
-            </Frame>
-            <Frame Grid.Column="2">
-                <StackLayout>
-                    
-                </StackLayout>
-                
-            </Frame>
-            <Frame Grid.Column="2">
-                <StackLayout>
-                    
-                </StackLayout>
-            </Frame>
-            
-        </Grid> -->
-        <!--
-        <Grid
-            BackgroundColor="#D1DFEF">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Frame Grid.Column="1"
-            BackgroundColor="#153862"
-            HasShadow="True"
-            Padding="25"
-            VerticalOptions="Center">
-                <StackLayout>
-                    
-                </StackLayout>
-            </Frame>
-        </Grid>
-        -->
 </ContentPage>
