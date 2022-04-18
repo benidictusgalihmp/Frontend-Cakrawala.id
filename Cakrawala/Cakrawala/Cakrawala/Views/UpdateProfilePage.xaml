@@ -61,13 +61,17 @@
                                BackgroundColor="White"
                                TextColor="#082E58"
                                PlaceholderColor="#5F83AA"/>
-                        <Button Text="Simpan Nama"
+                        <Label x:Name="updateUsernameErrMsg"
+                            FontSize="Micro"
+                            TextColor="#FF6600"></Label>
+                        <Button Text="Simpan Username"
                                 FontSize="Medium"
                                 Margin="0,25,0,0"
                                 HeightRequest="60"
                                 BackgroundColor="#4D7EFF"
                                 TextColor="White"
-                                CornerRadius="8"/>
+                                CornerRadius="8"
+                                Clicked="SaveUsernameButton_Clicked"/>
                     </StackLayout>
                 </Frame>
                 <Frame
@@ -108,13 +112,17 @@
                                BackgroundColor="White"
                                TextColor="#082E58"
                                PlaceholderColor="#5F83AA"/>
+                        <Label x:Name="updatePasswordErrMsg"
+                            FontSize="Micro"
+                            TextColor="#FF6600"></Label>
                         <Button Text="Simpan Password"
                                 FontSize="Medium"
                                 Margin="0,25,0,0"
                                 HeightRequest="60"
                                 BackgroundColor="#4D7EFF"
                                 TextColor="White"
-                                CornerRadius="8"/>
+                                CornerRadius="8"
+                                Clicked="SavePasswordButton_Clicked"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

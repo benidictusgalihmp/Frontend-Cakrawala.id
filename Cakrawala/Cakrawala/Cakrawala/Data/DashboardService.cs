@@ -36,13 +36,13 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string rawResp = await response.Content.ReadAsStringAsync();
-                    dashResp = JsonConvert.DeserializeObject<User>(rawResp);
-                }
+                    dashResp = JsonConvert.DeserializeObject<ResponseWrapper<User>>(rawResp).data;
+                } 
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Error" + ex.Message);
-                dashResp.userId = "error";
+                return null;
             }
 
             return dashResp;

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Cakrawala.Data.TransferService;
 
 namespace Cakrawala.Views
 {
@@ -72,13 +73,16 @@ namespace Cakrawala.Views
 
         private async void ConfirmButton_Clicked(object sender, EventArgs e)
         {
-            bool res = await App.transferService.TransferAsync(receiverId, Int32.Parse(nominal));
+            uint senderId = UInt32.Parse(Application.Current.Properties["userId"].ToString());
+
+            TransferResponse res = await App.transferService.TransferAsync(senderId, UInt32.Parse(receiverId), UInt32.Parse(nominal));
             Debug.WriteLine($"recvId: {receiverId}, nominal: {nominal}");
-            if (!res)
+            if (res == null)
             {
-                await DisplayAlert("Error", "Failed to transfer", "Ok");
+                await DisplayAlert("Error", "Terdapat kesalahan dalam melakukan transfer", "Ok");
             } else
             {
+                await DisplayAlert("Sukses", $"Berhasil transfer Rp{res.Amount} ke pengguna dengan username: \"{res.To.UserName}\"", "Ok");
                 await Shell.Current.GoToAsync("//dashboard");
             }
         }

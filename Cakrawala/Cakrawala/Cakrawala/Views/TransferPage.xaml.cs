@@ -26,11 +26,11 @@ namespace Cakrawala.Views
 
         private async void LanjutButton_Clicked(object sender, EventArgs e)
         {
-            User recvUser = await App.transferService.FindUserAsync(this.receiverId.Text);
-            if (recvUser != null)
+            User recvUser = await App.transferService.FindUserAsync(this.receiverUsername.Text);
+            if (!(recvUser is null)) // For now cannot retrieve other data
             {
                 // this.errorFindUserNote.IsVisible = false;
-                await Shell.Current.GoToAsync($"//transferconfirmation?receiverId={this.receiverId.Text}&nominal={this.nominal.Text}&receiverName={recvUser.userName}");
+                await Shell.Current.GoToAsync($"//transferconfirmation?receiverId={recvUser.userId}&nominal={this.nominal.Text}&receiverName={recvUser.displayName}");
             } else
             {
                 await DisplayAlert("Error", "Tidak dapat menemukan Pengguna dengan ID terkait", "Ok");
