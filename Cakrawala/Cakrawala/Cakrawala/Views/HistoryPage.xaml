@@ -187,7 +187,7 @@
                                     <Label FontSize="18"
                                        TextColor="#082E58"
                                        >Bank BCA</Label>
-                                </StackLayout>                                
+                                </StackLayout>
                                 <Label FontSize="24"
                                        TextColor="#00CE3A"
                                        Margin="270,0,0,0"

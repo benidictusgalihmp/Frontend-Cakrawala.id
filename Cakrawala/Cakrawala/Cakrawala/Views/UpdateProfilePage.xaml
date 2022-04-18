@@ -54,7 +54,7 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Username*</Label>
-                        <Entry x:Name ="entryUsernameProfile"
+                        <Entry x:Name ="entryUpdateUsername"
                                Placeholder="Username"
                                HeightRequest="40"
                                Margin="0,0,0,25"
@@ -84,7 +84,7 @@
                     VerticalOptions="Center">
                         <Label
                             FontSize="Medium">Password lama*</Label>
-                        <Entry x:Name ="entryPasswordLama"
+                        <Entry x:Name ="entryUpdateOldPassword"
                                Placeholder="Masukkan password lama" 
                                IsPassword="True"
                                HeightRequest="40"
@@ -94,7 +94,7 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Password baru*</Label>
-                        <Entry x:Name ="entryPasswordBaru"
+                        <Entry x:Name ="entryUpdateNewPassword"
                                Placeholder="Masukkan password baru" 
                                IsPassword="True"
                                HeightRequest="40"
@@ -104,7 +104,7 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Konfirmasi password</Label>
-                        <Entry x:Name ="entryKonfirmasiPassword"
+                        <Entry x:Name ="entryUpdateConfirmPassword"
                                Placeholder="Konfirmasi password" 
                                IsPassword="True"
                                HeightRequest="40"
