@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -43,6 +44,12 @@ namespace Cakrawala.Views
             updatePasswordErrMsg.Text = String.Empty;
         }
 
+        private void resetError()
+        {
+            updateUsernameErrMsg.Text = String.Empty;
+            updatePasswordErrMsg.Text = String.Empty;
+        }
+
         private async void ProfileButton_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//profile");
@@ -52,17 +59,21 @@ namespace Cakrawala.Views
         {
             string userId = Application.Current.Properties["userId"].ToString();
             string newUsername = entryUpdateUsername.Text;
+            resetError();
 
             if (newUsername.Length > 25)
             {
                 updateUsernameErrMsg.Text = "Panjang username tidak boleh melebihi 25 karakter";
-            } else if (newUsername.All(char.IsLetterOrDigit) ||
-                    !newUsername.All(char.IsWhiteSpace))
+                return;
+            } else if (!newUsername.All(char.IsLetterOrDigit) ||
+                    newUsername.All(char.IsWhiteSpace))
             {
                 updateUsernameErrMsg.Text = "Hanya huruf dan angka yang diperbolehkan dan tanpa spasi.";
+                return;
             } else if(newUsername == "")
             {
                 updateUsernameErrMsg.Text = "Username tidak boleh kosong.";
+                return;
             }
 
             bool status = await App.profileService.UpdateUsernameAsync(userId, newUsername);

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cakrawala.Views.UpdateProfilePage"
-             BackgroundColor="#D1DFEF">
+             BackgroundColor="#D1DFEF"
+             Shell.TabBarIsVisible="False">
     <Grid>
         <Grid Grid.Column="0" 
               Grid.Row="0"
@@ -44,7 +45,7 @@
                     VerticalOptions="Center">
                         <Label
                             FontSize="Medium">Username*</Label>
-                        <Entry x:Name="entryUpdateUsername"
+                        <Entry x:Name ="entryUpdateUsername"
                                Placeholder="Username"
                                HeightRequest="40"
                                Margin="0,0,0,25"
@@ -74,7 +75,7 @@
                     VerticalOptions="Center">
                         <Label
                             FontSize="Medium">Password lama*</Label>
-                        <Entry x:Name="entryUpdateOldPassword"
+                        <Entry x:Name ="entryUpdateOldPassword"
                                Placeholder="Masukkan password lama" 
                                IsPassword="True"
                                HeightRequest="40"
@@ -84,7 +85,7 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Password baru*</Label>
-                        <Entry x:Name="entryUpdateNewPassword"
+                        <Entry x:Name ="entryUpdateNewPassword"
                                Placeholder="Masukkan password baru" 
                                IsPassword="True"
                                HeightRequest="40"
@@ -94,7 +95,7 @@
                                PlaceholderColor="#5F83AA"/>
                         <Label
                             FontSize="Medium">Konfirmasi password</Label>
-                        <Entry x:Name="entryUpdateConfirmPassword"
+                        <Entry x:Name ="entryUpdateConfirmPassword"
                                Placeholder="Konfirmasi password" 
                                IsPassword="True"
                                HeightRequest="40"
