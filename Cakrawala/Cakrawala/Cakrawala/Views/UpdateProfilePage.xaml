@@ -44,15 +44,6 @@
                     <StackLayout
                     VerticalOptions="Center">
                         <Label
-                            FontSize="Medium">Nama*</Label>
-                        <Entry x:Name ="entryNamaProfile"
-                               Placeholder="Nama"
-                               HeightRequest="40"
-                               Margin="0,0,0,10"
-                               BackgroundColor="White"
-                               TextColor="#082E58"
-                               PlaceholderColor="#5F83AA"/>
-                        <Label
                             FontSize="Medium">Username*</Label>
                         <Entry x:Name ="entryUpdateUsername"
                                Placeholder="Username"
