@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Cakrawala.Data.TopupService;
 
 namespace Cakrawala.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [QueryProperty(nameof(Bank), "bank")]
+    [QueryProperty(nameof(BankId), "bankId")]
     public partial class TopupBankRequestPage : ContentPage
     {
+        private uint bankId;
+        public uint BankId
+        {
+            get { return bankId; }
+            set { bankId = value; Debug.WriteLine(value); }
+        }
+
         private string bank;
         public string Bank
         {
@@ -38,8 +48,16 @@ namespace Cakrawala.Views
 
         private async void RequestButton_Clicked(object sender, EventArgs e)
         {
-            string virtualAccount = "1234";
-            string timeLimit = "12 April 2022";
+            uint userId = UInt32.Parse(Application.Current.Properties["userId"].ToString());
+            uint amount = uint.Parse(this.nominal.Text);
+            TopupBankResponse response = await App.topupService.TopupBankAsync(userId, amount, BankId);
+            if (response == null)
+            {
+                await DisplayAlert("Error", "Cannot complete topup request", "Ok");
+                return;
+            }
+            uint virtualAccount = response.AccountNumber;
+            string timeLimit = response.ExpirationDate.ToString();
             string nominal = this.nominal.Text;
             await Shell.Current.GoToAsync($"//topupbankstep?virtualAccount={virtualAccount}&timeLimit={timeLimit}&nominal={nominal}&bank={bank}");
         }

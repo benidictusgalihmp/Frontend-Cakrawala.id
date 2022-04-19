@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cakrawala.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,6 +19,17 @@ namespace Cakrawala.Views
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Init();
+        }
+
+        private async void Init()
+        {
+            BankListView.ItemsSource = await App.bankService.GetBankList();
+        }
+
         private async void VoucherButton_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//topupvoucher");
@@ -28,6 +40,14 @@ namespace Cakrawala.Views
             string bankName = (sender as Button).Text;
             Debug.WriteLine("Hello" + bankName);
             await Shell.Current.GoToAsync("//topupbankrequest?bank=" + bankName);
+        }
+
+        private async void BankListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            string bankName = (e.Item as Bank).Name;
+            int bankId = (e.Item as Bank).Id;
+            Debug.WriteLine("Hello" + bankName);
+            await Shell.Current.GoToAsync($"//topupbankrequest?bank={bankName}&bankId={bankId}");
         }
     }
 }
