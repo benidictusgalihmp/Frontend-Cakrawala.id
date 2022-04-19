@@ -1,51 +1,81 @@
-﻿using System;
+﻿using Cakrawala.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Cakrawala.Models
 {
     public class TransactionHistory
     {
-        public string transactionId { get; set; }
-        public DateTime createdAt { get; set; }
+        public int transactionId { get; set; }
+        public TransactionType transactionType { get; set; }
+        public string transactionNote { get; set; }
+        public String urlImage { get; set; }
+        public DateTime createdDate { get; set; }
         public DateTime updatedAt { get; set; }
         public User from { get; set; }
-        public User to { get; set; }
-        public int baseValue { get; set; }
-        public Voucher voucher { get; set; }
+        public int amount { get; set; }
         public TransferStatus status { get; set; }
 
+        // TOP UP 
+        public string topupMethod { get; set; }
+
+        // TRANSFER
+        public User to { get; set; }
+
+        // TOP UP 
         public TransactionHistory(
-            string transactionId,
-            DateTime createdAt,
+            int transactionId,
+            TransactionType transactionType,
+            string transactionNote,
+            String urlImage,
+            DateTime createdDate,
+            DateTime updatedAt,
+            User from,
+            int amount,
+            string topupMethod,
+            TransferStatus status
+            )
+        {
+            this.transactionId = transactionId;
+            this.transactionType = transactionType;
+            this.transactionNote = transactionNote;
+            this.urlImage = urlImage;
+            this.createdDate = createdDate;
+            this.updatedAt = updatedAt;
+            this.from = from;
+            this.to = null;
+            this.amount = amount;
+            this.topupMethod = topupMethod;
+            this.status = status;
+        }
+
+        // TRANSFER
+        public TransactionHistory(
+            int transactionId,
+            TransactionType transactionType,
+            string transactionNote,
+            String urlImage,
+            DateTime createdDate,
             DateTime updatedAt,
             User from,
             User to,
-            int baseValue,
-            Voucher voucher,
-            TransferStatus status)
-        { 
-            this.status = status;
+            int amount,
+            TransferStatus status
+            )
+        {
             this.transactionId = transactionId;
-            this.createdAt = createdAt; 
+            this.transactionType = transactionType;
+            this.transactionNote = transactionNote;
+            this.urlImage= urlImage;
+            this.createdDate = createdDate;
             this.updatedAt = updatedAt;
-            this.voucher = new Voucher(voucher);
-            this.from = new User(from);
-            this.to = new User(to);
-            this.baseValue = baseValue;
-
+            this.from = from;
+            this.to = to;
+            this.amount = amount;
+            this.topupMethod = "";
+            this.status = status;
         }
-
-        public TransactionHistory(TransactionHistory th) { 
-            this.transactionId = th.transactionId;
-            this.createdAt = th.createdAt;
-            this.updatedAt = th.updatedAt;  
-            this.voucher = new Voucher(th.voucher);
-            this.status = th.status;
-            this.baseValue= th.baseValue;
-            this.from = new User(th.from);
-            this.to = new User(th.to);
-        }
-            
     }
 }
