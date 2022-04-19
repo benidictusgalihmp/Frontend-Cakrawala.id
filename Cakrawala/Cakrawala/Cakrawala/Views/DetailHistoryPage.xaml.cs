@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Cakrawala.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PayHistoryPage : ContentPage
+    public partial class DetailHistoryPage : ContentPage
     {
-        public PayHistoryPage()
+        public DetailHistoryPage()
         {
             InitializeComponent();
         }

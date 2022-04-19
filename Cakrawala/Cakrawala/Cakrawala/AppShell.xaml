@@ -10,7 +10,7 @@
         <ShellContent x:Name="loginPage" Title="Login" Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
         <ShellContent x:Name="registerPage" Title="Register" Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
         <ShellContent x:Name="updatePage" Title="Update" Route="update" ContentTemplate="{DataTemplate views:UpdateProfilePage}"/>
-        <ShellContent x:Name="detailHistoryPage" Title="Detail History" Route="detailHistory" ContentTemplate="{DataTemplate views:PayHistoryPage}"/>
+        <ShellContent x:Name="detailHistoryPage" Title="Detail History" Route="detailHistory" ContentTemplate="{DataTemplate views:DetailHistoryPage}"/>
     </TabBar>
 
     <FlyoutItem Title="Dashboard">

@@ -120,124 +120,55 @@
               Margin="36, 50, 50, 25">
             <Frame BackgroundColor="#38567A"
                    CornerRadius="15">
-                <ScrollView>
-                    <StackLayout>
-                        <Label FontSize="24"
-                               Margin="40,25,0,0"
-                               TextColor="White">Kamis, 3 Mar 2022</Label>
-                        <Frame Margin="25,15,0,0" 
-                               BackgroundColor="White"
-                               CornerRadius="15">
-                            <StackLayout Orientation="Horizontal">
-                                <Label FontSize="24"
-                                       TextColor="#082E58"
-                                       FontAttributes="Bold"
-                                       >Dibayar ke Warung Geprek</Label>
-                                <Label FontSize="24"
-                                       TextColor="#CE0000"
-                                       Margin="150,0,0,0"
-                                       VerticalOptions="Center">-Rp10.000</Label>
-                            </StackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BayarHistTrans_Tapped" NumberOfTapsRequired="1"/>
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Label FontSize="24"
-                               Margin="40,25,0,0"
-                               TextColor="White">Senin, 28 Feb 2022</Label>
-                        <Frame Margin="25,15,0,0" 
-                               BackgroundColor="White"
-                               CornerRadius="15">
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout>
-                                    <Label FontSize="24"
-                                       TextColor="#082E58"
-                                       FontAttributes="Bold"
-                                       >Isi ulang saldo</Label>
-                                    <Label FontSize="18"
-                                       TextColor="#082E58"
-                                       >Bank BCA</Label>
-                                </StackLayout>
-                                <Label FontSize="24"
-                                       TextColor="#00CE3A"
-                                       Margin="270,0,0,0"
-                                       VerticalOptions="Center">+Rp100.000</Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Margin="25,15,0,0" 
-                               BackgroundColor="White"
-                               CornerRadius="15">
-                            <StackLayout Orientation="Horizontal">
-                                <Label FontSize="24"
-                                       TextColor="#082E58"
-                                       FontAttributes="Bold"
-                                       >Dikirim ke Udin</Label>
-                                <Label FontSize="24"
-                                       TextColor="#CE0000"
-                                       Margin="275,0,0,0"
-                                       VerticalOptions="Center">-Rp20.000</Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Margin="25,15,0,0" 
-                               BackgroundColor="White"
-                               CornerRadius="15">
-                            <StackLayout Orientation="Horizontal">
-                                <Label FontSize="24"
-                                       TextColor="#082E58"
-                                       FontAttributes="Bold"
-                                       >Diterima dari Bambang</Label>
-                                <Label FontSize="24"
-                                       TextColor="#00CE3A"
-                                       Margin="170,0,0,0"
-                                       VerticalOptions="Center">+Rp100.000</Label>
-                            </StackLayout>
-                        </Frame>
-                        <Label FontSize="24"
-                               Margin="40,25,0,0"
-                               TextColor="White">Kamis, 3 Feb 2022</Label>
-                        <Frame Margin="25,15,0,0" 
-                               BackgroundColor="White"
-                               CornerRadius="15">
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout>
-                                    <Label FontSize="24"
-                                       TextColor="#082E58"
-                                       FontAttributes="Bold"
-                                       >Isi ulang saldo</Label>
-                                    <Label FontSize="18"
-                                       TextColor="#082E58"
-                                       >Kode Voucher</Label>
-                                </StackLayout>
-                                <Label FontSize="24"
-                                       TextColor="#00CE3A"
-                                       Margin="270,0,0,0"
-                                       VerticalOptions="Center">+Rp100.000</Label>
-                            </StackLayout>
-                        </Frame>
-                        <Label FontSize="24"
-                               Margin="40,25,0,0"
-                               TextColor="White">Rabu, 2 Feb 2022</Label>
-                        <Frame Margin="25,15,0,0" 
-                               BackgroundColor="White"
-                               CornerRadius="15">
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout>
-                                    <Label FontSize="24"
-                                       TextColor="#082E58"
-                                       FontAttributes="Bold"
-                                       >Isi ulang saldo</Label>
-                                    <Label FontSize="18"
-                                       TextColor="#082E58"
-                                       >Kode Voucher</Label>
-                                </StackLayout>
-                                <Label FontSize="24"
-                                       TextColor="#00CE3A"
-                                       Margin="280,0,0,0"
-                                       VerticalOptions="Center">+Rp50.000</Label>
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
-                </ScrollView>
+                <ListView x:Name="HistoryListView"
+                          SeparatorColor="White"
+                          ItemTapped="DetailHistoryPage_Tapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="8,8,8,8" 
+                                       BackgroundColor="White"
+                                       CornerRadius="15">
+                                    <StackLayout Orientation="Horizontal"
+                                                 Spacing="1">
+                                        <Image HeightRequest="70" 
+                                               WidthRequest="70"
+                                               Aspect="AspectFit" 
+                                               Source="{Binding urlImage}"/>
+                                        <StackLayout Margin="15,0,0,0" 
+                                                     VerticalOptions="Center">
+                                            <Label FontSize="24"
+                                                   TextColor="#082E58"
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding transactionNote}"
+                                                   ></Label>
+                                            <Label FontSize="14"
+                                                   TextColor="#082E58"
+                                                   Text="{Binding topupMethod}"
+                                                   ></Label>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Center"
+                                                     HorizontalOptions="EndAndExpand">
+                                            <Label FontSize="24"
+                                                   TextColor="#082E58"
+                                                   FontAttributes="Bold"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Text="{Binding amount}"
+                                                   ></Label>
+                                            <Label FontSize="14"
+                                                   TextColor="#082E58"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Text="{Binding status}"
+                                                   ></Label>
+                                        </StackLayout>
+                                        
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Frame>
         </Grid>
     </Grid>

@@ -30,8 +30,10 @@
                     <Label x:Name="userNameLabel" FontSize="Large">{UserName}</Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" >
-                    <Image Source="profile-pic-dummy.jpg"/>
-                    <Frame WidthRequest="25" HeightRequest="25" BackgroundColor="White" CornerRadius="100" VerticalOptions="Center"/>
+                    <Frame WidthRequest="25" HeightRequest="25" BackgroundColor="White" CornerRadius="100" VerticalOptions="Center">
+                        <Image Aspect="Fill"
+                               Source="profile-pic-dummy.jpg"/>
+                    </Frame>
                     <StackLayout Orientation="Vertical" VerticalOptions="Center" >
                         <Label x:Name="lvlLabel">Lvl {Lvl}</Label>
                         <Frame Padding="0" HeightRequest="10" WidthRequest="200" BackgroundColor="White"/>
