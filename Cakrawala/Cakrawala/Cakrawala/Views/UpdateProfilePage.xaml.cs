@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -43,6 +44,12 @@ namespace Cakrawala.Views
             updatePasswordErrMsg.Text = String.Empty;
         }
 
+        private void resetError()
+        {
+            updateUsernameErrMsg.Text = String.Empty;
+            updatePasswordErrMsg.Text = String.Empty;
+        }
+
         private async void ProfileButton_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//profile");
@@ -52,6 +59,7 @@ namespace Cakrawala.Views
         {
             string userId = Application.Current.Properties["userId"].ToString();
             string newUsername = entryUpdateUsername.Text;
+            resetError();
 
             if (newUsername.Length > 25)
             {
