@@ -56,13 +56,15 @@ namespace Cakrawala.Views
             if (newUsername.Length > 25)
             {
                 updateUsernameErrMsg.Text = "Panjang username tidak boleh melebihi 25 karakter";
-            } else if (newUsername.All(char.IsLetterOrDigit) ||
-                    !newUsername.All(char.IsWhiteSpace))
+            } else if (!newUsername.All(char.IsLetterOrDigit) ||
+                    newUsername.All(char.IsWhiteSpace))
             {
                 updateUsernameErrMsg.Text = "Hanya huruf dan angka yang diperbolehkan dan tanpa spasi.";
+                return;
             } else if(newUsername == "")
             {
                 updateUsernameErrMsg.Text = "Username tidak boleh kosong.";
+                return;
             }
 
             bool status = await App.profileService.UpdateUsernameAsync(userId, newUsername);
@@ -72,7 +74,7 @@ namespace Cakrawala.Views
                 updateUsernameErrMsg.Text = "Gagal mengubah username, tolong hubungi administrasi.";
                 return;
             }
-            await Shell.Current.GoToAsync("//update");
+            await Shell.Current.GoToAsync("//profile");
         } 
 
         private async void SavePasswordButton_Clicked(object sender, EventArgs e)
@@ -85,9 +87,16 @@ namespace Cakrawala.Views
             if (newPassword == "")
             {
                 updatePasswordErrMsg.Text = "Password tidak dapat kosong.";
+                return;
             } else if (newPassword != confirmPassword)
             {
                 updatePasswordErrMsg.Text = "Password dan Konfirmasi Password tidak sama.";
+                return;
+            } else if (newPassword.Length < 8 ||
+                        confirmPassword.Length < 8)
+            {
+                updatePasswordErrMsg.Text = "Panjang Password Baru dan Konfirmasi Password harus lebih dari 8 karakter.";
+                return;
             }
 
             bool status = await App.profileService.UpdatePasswordAsync(userId, oldPassword, newPassword);
@@ -97,7 +106,7 @@ namespace Cakrawala.Views
                 updatePasswordErrMsg.Text = "Gagal mengubah password. Password lama yang Anda masukkan salah.";
                 return;
             }
-            await Shell.Current.GoToAsync("//update");
+            await Shell.Current.GoToAsync("//profile");
         }
     }
 }
