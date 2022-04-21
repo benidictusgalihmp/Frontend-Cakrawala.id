@@ -47,6 +47,26 @@
                     </Frame>
                     <Label FontSize="Medium" FontAttributes="Bold">Pilih Bank</Label>
                     <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 10, 0, 10"/>
+                    <ListView x:Name="BankListView"
+                              SeparatorColor="White"
+                              ItemTapped="BankListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Margin="8,8,8,8" 
+                                           BackgroundColor="White"
+                                           CornerRadius="15">
+                                        <Label FontSize="24"
+                                                   TextColor="#082E58"
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding Name}"
+                                                   />
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!--
                     <Button  
                         Text="BCA" 
                         BackgroundColor="#0000" 
@@ -74,6 +94,7 @@
                         FontSize="Small" 
                         Clicked="BankButton_Clicked"
                     />
+                    -->
                 </StackLayout>
             </Frame>
             <Label HorizontalOptions="Center" TextColor="Red" x:Name="errorText"></Label>

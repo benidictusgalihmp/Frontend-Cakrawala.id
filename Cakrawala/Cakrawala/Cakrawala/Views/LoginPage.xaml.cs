@@ -30,7 +30,6 @@ namespace Cakrawala.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine(Application.Current.Properties["token"]);
             this.errorText.Text = String.Empty;
 
             if (email.Text == string.Empty || password.Text == string.Empty)

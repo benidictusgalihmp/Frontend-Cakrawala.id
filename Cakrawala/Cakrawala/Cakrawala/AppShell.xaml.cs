@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace Cakrawala
 {
@@ -7,13 +9,22 @@ namespace Cakrawala
         public AppShell()
         {
             InitializeComponent();
-            if (Application.Current.Properties["token"] == null || (string)Application.Current.Properties["token"] == "")
+            try
+            {
+                if (Application.Current.Properties["token"] == null || (string)Application.Current.Properties["token"] == "")
+                {
+                    this.CurrentItem = loginPage;
+                }
+                else
+                {
+                    this.CurrentItem = dashboardPage;
+                }
+
+            } catch (KeyNotFoundException ex)
             {
                 this.CurrentItem = loginPage;
-            } else
-            {
-                this.CurrentItem = dashboardPage;
             }
+            
         }
 
         private async void LogoutItem_Clicked(object sender, System.EventArgs e)
