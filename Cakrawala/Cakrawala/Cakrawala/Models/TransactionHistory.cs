@@ -8,15 +8,16 @@ namespace Cakrawala.Models
 {
     public class TransactionHistory
     {
-        public int transactionId { get; set; }
+        public string transactionId { get; set; }
         public TransactionType transactionType { get; set; }
         public string transactionNote { get; set; }
-        public String urlImage { get; set; }
+        public string urlImage { get; set; }
+        public string headerDate { get; set; }
         public DateTime createdDate { get; set; }
         public DateTime updatedAt { get; set; }
         public User from { get; set; }
         public int amount { get; set; }
-        public TransferStatus status { get; set; }
+        public TransferStatus? status { get; set; }
 
         // TOP UP 
         public string topupMethod { get; set; }
@@ -26,25 +27,26 @@ namespace Cakrawala.Models
 
         // TOP UP 
         public TransactionHistory(
-            int transactionId,
+            string transactionId,
             TransactionType transactionType,
             string transactionNote,
             String urlImage,
+            String headerDate,
             DateTime createdDate,
             DateTime updatedAt,
-            User from,
             int amount,
             string topupMethod,
-            TransferStatus status
+            TransferStatus? status
             )
         {
             this.transactionId = transactionId;
             this.transactionType = transactionType;
             this.transactionNote = transactionNote;
             this.urlImage = urlImage;
+            this.headerDate = headerDate;
             this.createdDate = createdDate;
             this.updatedAt = updatedAt;
-            this.from = from;
+            this.from = null;
             this.to = null;
             this.amount = amount;
             this.topupMethod = topupMethod;
@@ -53,10 +55,11 @@ namespace Cakrawala.Models
 
         // TRANSFER
         public TransactionHistory(
-            int transactionId,
+            string transactionId,
             TransactionType transactionType,
             string transactionNote,
             String urlImage,
+            String headerDate,
             DateTime createdDate,
             DateTime updatedAt,
             User from,
@@ -69,13 +72,30 @@ namespace Cakrawala.Models
             this.transactionType = transactionType;
             this.transactionNote = transactionNote;
             this.urlImage= urlImage;
+            this.headerDate = headerDate;
             this.createdDate = createdDate;
             this.updatedAt = updatedAt;
-            this.from = from;
-            this.to = to;
+            this.from = new User(from);
+            this.to = new User(to);
             this.amount = amount;
             this.topupMethod = "";
             this.status = status;
+        }
+
+        public TransactionHistory()
+        {
+            this.transactionId = "";
+            this.transactionType = TransactionType.ISIULANG;
+            this.transactionNote = "";
+            this.urlImage = "";
+            this.headerDate = "";
+            this.createdDate = new DateTime();
+            this.updatedAt = new DateTime();
+            this.from = new User();
+            this.to = new User();
+            this.amount = 0;
+            this.topupMethod = "";
+            this.status = TransferStatus.PENDING;
         }
     }
 }

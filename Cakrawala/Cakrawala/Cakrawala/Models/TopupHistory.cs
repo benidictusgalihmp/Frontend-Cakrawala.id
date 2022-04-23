@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,28 +7,31 @@ namespace Cakrawala.Models
 {
     public class TopupHistory
     {
+        [JsonProperty(PropertyName = "id")]
         public string topupId { get; set; }
+        [JsonProperty(PropertyName = "created_at")]
         public DateTime createdAt { get; set; }
+        [JsonProperty(PropertyName = "updated_at")]
         public DateTime updatedAt { get; set; }
-        public User from { get; set; }
+        [JsonProperty(PropertyName = "amount")]
         public int value { get; set; }
+        [JsonProperty(PropertyName = "method")]
         public string method { get; set; }
-        public TransferStatus status { get; set; }
+        [JsonProperty(PropertyName = "status")]
+        public TransferStatus? status { get; set; }
 
         public TopupHistory(string topupId,
                             DateTime createdAt,
                             DateTime updatedAt,
-                            User from,
                             int value,
                             string method,
-                            TransferStatus status)
+                            TransferStatus? status)
         { 
             this.topupId = topupId;
             this.createdAt = createdAt;
             this.updatedAt = updatedAt;
             this.method = method;
-            this.status = status;
-            this.from = new User(from);
+            this.status = status != null ? status : TransferStatus.SUCCESS;
             this.value = value;
         }
 
@@ -35,10 +39,19 @@ namespace Cakrawala.Models
             this.topupId=topupHistory.topupId;
             this.createdAt=topupHistory.createdAt;
             this.status=topupHistory.status;
-            this.from = new User(topupHistory.from);
             this.value = topupHistory.value;
             this.updatedAt=topupHistory.updatedAt;
             this.method = topupHistory.method;  
+        }
+
+        public TopupHistory()
+        {
+            this.topupId = "";
+            this.createdAt = new DateTime();
+            this.updatedAt = new DateTime();
+            this.method = "";
+            this.status = TransferStatus.PENDING;
+            this.value = 0;
         }
     }
 }

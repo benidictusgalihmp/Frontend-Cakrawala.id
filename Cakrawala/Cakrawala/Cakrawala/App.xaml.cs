@@ -14,6 +14,7 @@ namespace Cakrawala
         public static DashboardService dashboardService = new DashboardService();
         public static ProfileService profileService = new ProfileService();
         public static BankService bankService = new BankService();
+        public static TransactionHistoryService transactionHistoryService = new TransactionHistoryService();
 
         public App()
         {

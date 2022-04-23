@@ -6,7 +6,6 @@ namespace Cakrawala.Models
 {
     public enum TransactionType
     {
-        TRANSFERTOKO,
         ISIULANG,
         BAYARUSER, 
         TERIMAUSER

@@ -29,7 +29,8 @@
                        Margin="0, 70, 0, 15"
                        TextColor="#082E58"
                        >Pilih Tanggal Transaksi</Label>
-                <RadioButton Margin="0, 0, 0, 5"
+                <RadioButton x:Name="radioOneWeekDate" 
+                             Margin="0, 0, 0, 5"
                              Padding="15, 0, 0, 0"
                              IsChecked="True"
                              BackgroundColor="#38567A"
@@ -41,16 +42,17 @@
                                    FontSize="24"
                                    FontAttributes="Bold">7 hari terakhir</Label>
                             <StackLayout Orientation="Horizontal">
-                                <Label x:Name="todayDateWeek"
-                                    FontSize="18">3 Mar 2022</Label>
-                                <Label FontSize="18">-</Label>
                                 <Label x:Name="oneWeekDate"
-                                    FontSize="18">24 Feb 2022</Label>
+                                    FontSize="18"/>
+                                <Label FontSize="18">-</Label>
+                                <Label x:Name="todayDateWeek"
+                                    FontSize="18"/>
                             </StackLayout>
                         </StackLayout>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Margin="0, 0, 0, 5"
+                <RadioButton x:Name="radioOneMonthDate"  
+                             Margin="0, 0, 0, 5"
                              Padding="15, 0, 0, 0"
                              BackgroundColor="#38567A"
                              CornerRadius="15">
@@ -61,16 +63,17 @@
                                    FontSize="24"
                                    FontAttributes="Bold">30 hari terakhir</Label>
                             <StackLayout Orientation="Horizontal">
-                                <Label x:Name="todayDateMonth"
-                                    FontSize="18">3 Mar 2022</Label>
-                                <Label FontSize="18">-</Label>
                                 <Label x:Name="oneMonthDate"
-                                    FontSize="18">1 Feb 2022</Label>
+                                    FontSize="18"/>
+                                <Label FontSize="18">-</Label>
+                                <Label x:Name="todayDateMonth"
+                                    FontSize="18"/>
                             </StackLayout>
                         </StackLayout>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Margin="0, 0, 0, 5"
+                <RadioButton x:Name="radioCustomDate" 
+                             Margin="0, 0, 0, 5"
                              Padding="15, 0, 0, 0"
                              BackgroundColor="#38567A"
                              CornerRadius="15">
@@ -80,23 +83,12 @@
                                      Orientation="Horizontal">
                             <StackLayout>
                                 <Label FontSize="18">Dari</Label>
-                                <Frame Padding="0" CornerRadius="7">
-                                    <Entry x:Name="entryDateFrom"
-                                       FontSize="18"
-                                       FontAttributes="Bold"
-                                       WidthRequest="185"
-                                       HeightRequest="80"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Center"
-                                       TextColor="#082E58"
-                                       Placeholder="1 Jan 2022"
-                                       PlaceholderColor="#355377"
-                                       BackgroundColor="White"></Entry>
-                                </Frame>                                
+                                <DatePicker x:Name="DatePickerFrom"/>
                             </StackLayout>
                             <StackLayout Margin="70,0,0,0">
                                 <Label FontSize="18">Sampai</Label>
-                                <Frame Padding="0" CornerRadius="7">
+                                <DatePicker x:Name="DatePickerTo"/>
+                                <!--<Frame Padding="0" CornerRadius="7">
                                     <Entry x:Name="entryDateTo"
                                        FontSize="18"
                                        FontAttributes="Bold"
@@ -108,7 +100,7 @@
                                        Placeholder="3 Mar 2022"
                                        PlaceholderColor="#355377"
                                        BackgroundColor="White"></Entry>
-                                </Frame>                                
+                                </Frame>-->                                
                             </StackLayout>
                         </StackLayout>
                     </RadioButton.Content>
@@ -123,6 +115,12 @@
                 <ListView x:Name="HistoryListView"
                           SeparatorColor="White"
                           ItemTapped="DetailHistoryPage_Tapped">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <TextCell TextColor="White"
+                                      Text="{Binding headerDate}"/>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -162,7 +160,6 @@
                                                    Text="{Binding status}"
                                                    ></Label>
                                         </StackLayout>
-                                        
                                     </StackLayout>
                                 </Frame>
                             </ViewCell>
