@@ -56,10 +56,10 @@ namespace Cakrawala.Views
                 await DisplayAlert("Error", "Cannot complete topup request", "Ok");
                 return;
             }
-            uint virtualAccount = response.AccountNumber;
+            uint bankNumber = response.AccountNumber;
             string timeLimit = response.ExpirationDate.ToString();
             string nominal = this.nominal.Text;
-            await Shell.Current.GoToAsync($"//topupbankstep?virtualAccount={virtualAccount}&timeLimit={timeLimit}&nominal={nominal}&bank={bank}");
+            await Shell.Current.GoToAsync($"//topupbankstep?bankNumber={bankNumber}&timeLimit={timeLimit}&nominal={nominal}&bank={bank}");
         }
     }
 }

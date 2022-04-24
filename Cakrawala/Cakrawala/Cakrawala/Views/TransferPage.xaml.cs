@@ -33,7 +33,7 @@ namespace Cakrawala.Views
                 await Shell.Current.GoToAsync($"//transferconfirmation?receiverId={recvUser.userId}&nominal={this.nominal.Text}&receiverName={recvUser.displayName}");
             } else
             {
-                await DisplayAlert("Error", "Tidak dapat menemukan Pengguna dengan ID terkait", "Ok");
+                await DisplayAlert("Error", "Tidak dapat menemukan Pengguna dengan Username terkait", "Ok");
             }
         }
     }

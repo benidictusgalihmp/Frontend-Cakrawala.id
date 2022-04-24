@@ -17,14 +17,11 @@ namespace Cakrawala.Views
         public LoginPage()
         {
             InitializeComponent();
-            email.Text = "skaldraf@gmail.com";
-            password.Text = "secret123";
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            Debug.WriteLine("HELOOOOOO");
             resetState();
         }
 

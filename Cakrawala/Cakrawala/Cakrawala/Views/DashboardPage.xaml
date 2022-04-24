@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:components="clr-namespace:Cakrawala.Components"
              x:Class="Cakrawala.Views.DashboardPage"
              BackgroundColor="#D1DFEF">
 
@@ -30,9 +31,15 @@
                     <Label x:Name="userNameLabel" FontSize="Large">{UserName}</Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" >
-                    <Frame WidthRequest="25" HeightRequest="25" BackgroundColor="White" CornerRadius="100" VerticalOptions="Center">
+                    <Frame WidthRequest="25" 
+                           HeightRequest="25" 
+                           BackgroundColor="White" 
+                           CornerRadius="100" 
+                           VerticalOptions="Center"
+                           >
                         <Image Aspect="Fill"
-                               Source="profile-pic-dummy.jpg"/>
+                               Source="profile-pic-dummy.jpg">
+                        </Image>
                     </Frame>
                     <StackLayout Orientation="Vertical" VerticalOptions="Center" >
                         <Label x:Name="lvlLabel">Lvl {Lvl}</Label>
@@ -65,11 +72,67 @@
                 </AbsoluteLayout>
             </StackLayout>
         </AbsoluteLayout>
-        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10" Grid.Column="1" Padding="30">
-            <Button Grid.Row="0" Grid.Column="0" Text="Scan" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large"/>
-            <Button Grid.Row="0" Grid.Column="1" Text="Topup" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="TopupButton_Clicked"/>
-            <Button Grid.Row="1" Grid.Column="0" Text="History" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="HistoryButton_Clicked"/>
-            <Button Grid.Row="1" Grid.Column="1" Text="Transfer" BackgroundColor="#80FFFFFF" TextColor="Black" FontSize="Large" Clicked="TransferButton_Clicked"/>
+        <Grid RowDefinitions="*,*,*" ColumnDefinitions="*" ColumnSpacing="10" RowSpacing="10" Grid.Column="1" Padding="30">
+            <components:CustomButton Tapped="TransferButton_Clicked" Grid.Row="0" Grid.Column="0">
+                <Frame HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       Padding="0,0,0,0"
+                       BackgroundColor="#80FFFFFF">
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="5">
+                        <Image Aspect="Fill"
+                               Source="arrow-up-circle.png">
+                        </Image>
+                        <Label VerticalTextAlignment="Center" 
+                               VerticalOptions="Center"
+                               Text="Transfer" 
+                               TextColor="#082E58" 
+                               FontSize="Large"></Label>
+                    </StackLayout>
+                </Frame>
+            </components:CustomButton>
+            <components:CustomButton Tapped="TopupButton_Clicked" Grid.Row="1" Grid.Column="0">
+                <Frame HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       Padding="0,0,0,0"
+                       BackgroundColor="#80FFFFFF">
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="5">
+                        <Image Aspect="Fill"
+                               Source="plus-circle.png">
+                        </Image>
+                        <Label VerticalTextAlignment="Center" 
+                               VerticalOptions="Center"
+                               Text="Topup" 
+                               TextColor="#082E58" 
+                               FontSize="Large"></Label>
+                    </StackLayout>
+                </Frame>
+            </components:CustomButton>
+            <components:CustomButton Tapped="HistoryButton_Clicked" Grid.Row="2" Grid.Column="0">
+                <Frame HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       Padding="0,0,0,0"
+                       BackgroundColor="#80FFFFFF">
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="5">
+                        <Image Aspect="Fill"
+                               Source="clock.png">
+                        </Image>
+                        <Label VerticalTextAlignment="Center" 
+                               VerticalOptions="Center"
+                               Text="History" 
+                               TextColor="#082E58" 
+                               FontSize="Large"></Label>
+                    </StackLayout>
+                </Frame>
+            </components:CustomButton>
         </Grid>
     </Grid>
     

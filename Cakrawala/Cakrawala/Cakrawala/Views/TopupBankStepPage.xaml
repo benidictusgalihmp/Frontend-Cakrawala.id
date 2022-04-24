@@ -28,13 +28,13 @@
                     <Label FontSize="Medium" FontAttributes="Bold">Petunjuk Pembayaran</Label>
                     <Frame Padding="0" CornerRadius="0" HeightRequest="2" BackgroundColor="White" Margin="0, 10, 0, 10"/>
 
-                    <Label FontSize="Small">No. Virtual Account</Label>
+                    <Label FontSize="Small">No. Rekening</Label>
                     <Entry 
-                        x:Name="virtualAccountEntry"
+                        x:Name="bankNumberLabel"
                         BackgroundColor="White" 
                         TextColor="Black" 
                         Keyboard="Numeric"
-                        IsEnabled="False"
+                        IsReadOnly="True"
                     />
 
                     <Label FontSize="Small">Batas Waktu Pembayaran</Label>
