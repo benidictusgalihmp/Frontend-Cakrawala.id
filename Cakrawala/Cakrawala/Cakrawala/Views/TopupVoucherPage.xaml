@@ -46,7 +46,7 @@
                         </Label>
                     </Frame>
                     <StackLayout Orientation="Vertical">
-                        <Label FontSize="Medium" FontAttributes="Bold">12 Digit Voucher</Label>
+                        <Label FontSize="Medium" FontAttributes="Bold">Kode Voucher</Label>
                         <Frame Padding="0" CornerRadius="7">
                             <StackLayout Orientation="Horizontal">
                                 <Entry 
