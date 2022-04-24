@@ -14,75 +14,14 @@ namespace Cakrawala.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HistoryPage : ContentPage
     {
-        public List<TransactionHistory> transListView;
+        public static List<TransactionHistory> transListView { get; set; }
         public int lenTransListView;
 
         public HistoryPage()
         {
             InitializeComponent();
-
-            // ##### TESTING ONLY ###################
-            //User userA = new User(
-            //    "0", 
-            //    "userA", 
-            //    "12345678",
-            //    "userA",
-            //    "userA@example.com",
-            //    1000000, 
-            //    50, 
-            //    "GOLD", 
-            //    0
-            //);
-            //User userB = new User(
-            //    "0",
-            //    "userB",
-            //    "12345678",
-            //    "userB",
-            //    "userB@example.com",
-            //    5000000,
-            //    50,
-            //    "SILVER",
-            //    0
-            //);
-
-            
-
-            //DateTime createdDate = new DateTime(2018, 6, 21);
-            //DateTime updatedAt = new DateTime(2020, 3, 5);
-
-
-            //List<TransactionHistory> transListView = new List<TransactionHistory>
-            //{
-            //    new TransactionHistory(
-            //        0,
-            //        TransactionType.ISIULANG,
-            //        "Isi ulang",
-            //        topup,
-            //        createdDate.ToString("ddd, dd MMM yyyy"),
-            //        createdDate,
-            //        updatedAt,
-            //        userA,
-            //        100000,
-            //        "BANK BCA",
-            //        TransferStatus.PENDING),
-            //    new TransactionHistory(
-            //        1,
-            //        TransactionType.BAYARUSER,
-            //        "Pembayaran",
-            //        payoutuser,
-            //        createdDate.ToString("ddd, dd MMM yyyy"),
-            //        createdDate,
-            //        updatedAt,
-            //        userA,
-            //        userB,
-            //        5000,
-            //        TransferStatus.PENDING)
-            //};
-            // #######################################
-
-            //HistoryListView.ItemsSource = this.transListView;
-
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -101,7 +40,7 @@ namespace Cakrawala.Views
             Debug.WriteLine("[TOPUP HISTORY]", listTopupHistory);
 
             // renew data list transaction from backend
-            this.transListView = new List<TransactionHistory>();
+            HistoryPage.transListView = new List<TransactionHistory>();
             int idTrans = 0;
 
             foreach (TransferHistory transferHistory in listTransferHistory)
@@ -122,7 +61,7 @@ namespace Cakrawala.Views
                 User userFrom = await App.profileService.ViewProfileAsync(idFrom);
                 User userTo = await App.profileService.ViewProfileAsync(idTo);
 
-                this.transListView.Add(new TransactionHistory(
+                HistoryPage.transListView.Add(new TransactionHistory(
                     (idTrans).ToString(),
                     transactionType,
                     transactionNote,
@@ -143,7 +82,7 @@ namespace Cakrawala.Views
                 string transactionNote = "Isi Ulang Saldo";
                 string urlImage = "topup.png";
 
-                this.transListView.Add(new TransactionHistory(
+                HistoryPage.transListView.Add(new TransactionHistory(
                     (idTrans).ToString(),
                     transactionType,
                     transactionNote,
@@ -156,7 +95,7 @@ namespace Cakrawala.Views
                     topupHistory.status));
                 idTrans += 1;
             }
-            HistoryListView.ItemsSource = this.transListView;
+            HistoryListView.ItemsSource = HistoryPage.transListView;
         }
 
         private void resetState()
@@ -183,7 +122,8 @@ namespace Cakrawala.Views
 
         private async void DetailHistoryPage_Tapped(object sender, ItemTappedEventArgs e)
         {
-            await Shell.Current.GoToAsync("//detailHistory");
+            string transaksiId = (e.Item as TransactionHistory).transactionId;
+            await Shell.Current.GoToAsync($"//detailHistory?historyId={transaksiId}");
         }
     }
 }
