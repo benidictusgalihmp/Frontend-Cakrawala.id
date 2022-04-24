@@ -11,7 +11,7 @@ namespace Cakrawala.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [QueryProperty(nameof(Bank), "bank")]
-    [QueryProperty(nameof(VirtualAccount), "virtualAccount")]
+    [QueryProperty(nameof(BankNumber), "bankNumber")]
     [QueryProperty(nameof(TimeLimit), "timeLimit")]
     [QueryProperty(nameof(Nominal), "nominal")]
     public partial class TopupBankStepPage : ContentPage
@@ -28,14 +28,14 @@ namespace Cakrawala.Views
             }
         }
 
-        private string virtualAccount;
-        public string VirtualAccount
+        private string bankNumber;
+        public string BankNumber
         {
-            get { return virtualAccount; }
+            get { return bankNumber; }
             set
             {
-                virtualAccount = value;
-                virtualAccountEntry.Text = value;
+                bankNumber = value;
+                this.bankNumberLabel.Text = value;
             }
         }
 
@@ -57,7 +57,7 @@ namespace Cakrawala.Views
             set
             {
                 nominal = value;
-                nominalLabel.Text = value;
+                nominalLabel.Text = $"Rp {value}";
             }
         }
 

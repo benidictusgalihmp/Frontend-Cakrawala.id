@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="arrow-up-circle.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
@@ -131,9 +132,11 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="clock.png" />
     <Content Include="payinuser.png" />
     <Content Include="payoutshop.png" />
     <Content Include="payoutuser.png" />
+    <Content Include="plus-circle.png" />
     <Content Include="profile-pic-dummy.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="topup.png" />
