@@ -97,5 +97,21 @@ namespace Cakrawala.Models
             this.topupMethod = "";
             this.status = TransferStatus.PENDING;
         }
+
+        public TransactionHistory(TransactionHistory transactionHistory)
+        {
+            this.transactionId = transactionHistory.transactionId;
+            this.transactionType = transactionHistory.transactionType;
+            this.transactionNote = transactionHistory.transactionNote;
+            this.urlImage = transactionHistory.urlImage;
+            this.headerDate = transactionHistory.headerDate;
+            this.createdDate = transactionHistory.createdDate;
+            this.updatedAt = transactionHistory.updatedAt;
+            this.from = transactionHistory.from;
+            this.to = transactionHistory.to;
+            this.amount = transactionHistory.amount;
+            this.topupMethod = transactionHistory.topupMethod;
+            this.status = transactionHistory.status;
+        }
     }
 }

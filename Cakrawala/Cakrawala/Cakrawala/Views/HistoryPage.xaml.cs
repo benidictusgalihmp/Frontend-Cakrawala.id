@@ -34,10 +34,10 @@ namespace Cakrawala.Views
             string userId = Application.Current.Properties["userId"].ToString();
 
             List<TransferHistory> listTransferHistory = await App.transactionHistoryService.TransferHistoryAsync(userId);
-            Debug.WriteLine("[TRANSFER HISTORY]", listTransferHistory[0].transactionId);
+            // Debug.WriteLine("[TRANSFER HISTORY]", listTransferHistory[0].transactionId);
 
             List<TopupHistory> listTopupHistory = await App.transactionHistoryService.TopupHistoryAsync(userId);
-            Debug.WriteLine("[TOPUP HISTORY]", listTopupHistory);
+            // Debug.WriteLine("[TOPUP HISTORY]", listTopupHistory);
 
             // renew data list transaction from backend
             HistoryPage.transListView = new List<TransactionHistory>();
@@ -123,6 +123,8 @@ namespace Cakrawala.Views
         private async void DetailHistoryPage_Tapped(object sender, ItemTappedEventArgs e)
         {
             string transaksiId = (e.Item as TransactionHistory).transactionId;
+            Debug.WriteLine("[TRANSAKSI ID]");
+            Debug.WriteLine(transaksiId);
             await Shell.Current.GoToAsync($"//detailHistory?historyId={transaksiId}");
         }
     }

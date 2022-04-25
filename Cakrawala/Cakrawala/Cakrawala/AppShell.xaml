@@ -19,7 +19,7 @@
     <FlyoutItem Title="Profile">
         <ShellContent x:Name="profilePage" Route="profile" Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Riwayat Transaksi">
+    <FlyoutItem Title="History Transaksi">
         <ShellContent x:Name="historyPage" Title="History" Route="history" ContentTemplate="{DataTemplate views:HistoryPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Transfer">

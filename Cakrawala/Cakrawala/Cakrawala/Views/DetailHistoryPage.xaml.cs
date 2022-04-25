@@ -15,8 +15,14 @@ namespace Cakrawala.Views
     [QueryProperty(nameof(HistoryId), "historyId")]
     public partial class DetailHistoryPage : ContentPage
     {
-        private string HistoryId;
+        private string historyId;
         private TransactionHistory transactionHistory;
+
+        public string HistoryId
+        {
+            get { return historyId; }
+            set { historyId = value; }
+        }
 
         public DetailHistoryPage()
         {
@@ -29,15 +35,18 @@ namespace Cakrawala.Views
             RetrieveUserData();
         }
 
-        public async void RetrieveUserData()
+        public void RetrieveUserData()
         {
             List<TransactionHistory> transListView = HistoryPage.transListView;
-            Debug.WriteLine(transListView[0].transactionId);
             foreach (TransactionHistory history in transListView)
             {
+                Debug.WriteLine("[HISTORY TRANSACTION ID]");
+                Debug.WriteLine(history.transactionId);
+                Debug.WriteLine("[PAGE TRANSACTION ID]");
+                Debug.WriteLine(HistoryId);
                 if (history.transactionId == HistoryId)
                 {
-                    this.transactionHistory = history;
+                    this.transactionHistory = new TransactionHistory(history);
                 }
             }
 
