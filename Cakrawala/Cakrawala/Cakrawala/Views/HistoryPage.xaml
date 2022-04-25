@@ -29,82 +29,76 @@
                        Margin="0, 70, 0, 15"
                        TextColor="#082E58"
                        >Pilih Tanggal Transaksi</Label>
-                <RadioButton x:Name="radioOneWeekDate" 
-                             Margin="0, 0, 0, 5"
-                             Padding="15, 0, 0, 0"
-                             IsChecked="True"
-                             BackgroundColor="#38567A"
-                             CornerRadius="15">
-                    <RadioButton.Content>
-                        <StackLayout Margin="15, 0, 15, 0"
-                                     Padding="15">
-                            <Label Margin="0,0,0,5"
-                                   FontSize="24"
-                                   FontAttributes="Bold">7 hari terakhir</Label>
-                            <StackLayout Orientation="Horizontal">
-                                <Label x:Name="oneWeekDate"
-                                    FontSize="18"/>
-                                <Label FontSize="18">-</Label>
-                                <Label x:Name="todayDateWeek"
-                                    FontSize="18"/>
-                            </StackLayout>
+                <Frame Margin="0, 0, 0, 5"
+                       Padding="15, 0, 0, 0"
+                       BackgroundColor="#0043FC"
+                       CornerRadius="15"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="changeHistoryTransactionsWeekAgo" 
+                                              NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Margin="15, 0, 15, 0"
+                                 Padding="15">
+                        <Label Margin="0,0,0,5"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               >7 hari terakhir</Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="oneWeekDate"
+                                   FontSize="18"/>
+                            <Label FontSize="18">-</Label>
+                            <Label x:Name="todayDateWeek"
+                                   FontSize="18"/>
                         </StackLayout>
-                    </RadioButton.Content>
-                </RadioButton>
-                <RadioButton x:Name="radioOneMonthDate"  
-                             Margin="0, 0, 0, 5"
-                             Padding="15, 0, 0, 0"
-                             BackgroundColor="#38567A"
-                             CornerRadius="15">
-                    <RadioButton.Content>
-                        <StackLayout Margin="15, 0, 15, 0"
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="0, 0, 0, 5"
+                       Padding="15, 0, 0, 0"
+                       BackgroundColor="#0043FC"
+                       CornerRadius="15"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="changeHistoryTransactionsMonthAgo"
+                                              NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Margin="15, 0, 15, 0"
                                      Padding="15">
-                            <Label Margin="0,0,0,5"
+                        <Label Margin="0,0,0,5"
                                    FontSize="24"
                                    FontAttributes="Bold">30 hari terakhir</Label>
-                            <StackLayout Orientation="Horizontal">
-                                <Label x:Name="oneMonthDate"
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="oneMonthDate"
                                     FontSize="18"/>
-                                <Label FontSize="18">-</Label>
-                                <Label x:Name="todayDateMonth"
+                            <Label FontSize="18">-</Label>
+                            <Label x:Name="todayDateMonth"
                                     FontSize="18"/>
-                            </StackLayout>
                         </StackLayout>
-                    </RadioButton.Content>
-                </RadioButton>
-                <RadioButton x:Name="radioCustomDate" 
-                             Margin="0, 0, 0, 5"
-                             Padding="15, 0, 0, 0"
-                             BackgroundColor="#38567A"
-                             CornerRadius="15">
-                    <RadioButton.Content>
-                        <StackLayout Margin="15, 0, 15, 0"
-                                     Padding="15"
-                                     Orientation="Horizontal">
-                            <StackLayout>
-                                <Label FontSize="18">Dari</Label>
-                                <DatePicker x:Name="DatePickerFrom"/>
-                            </StackLayout>
-                            <StackLayout Margin="70,0,0,0">
-                                <Label FontSize="18">Sampai</Label>
-                                <DatePicker x:Name="DatePickerTo"/>
-                                <!--<Frame Padding="0" CornerRadius="7">
-                                    <Entry x:Name="entryDateTo"
-                                       FontSize="18"
-                                       FontAttributes="Bold"
-                                       WidthRequest="185"
-                                       HeightRequest="80"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Center"
-                                       TextColor="#082E58"
-                                       Placeholder="3 Mar 2022"
-                                       PlaceholderColor="#355377"
-                                       BackgroundColor="White"></Entry>
-                                </Frame>-->                                
-                            </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="0, 0, 0, 5"
+                       Padding="15, 0, 0, 0"
+                       BackgroundColor="#0043FC"
+                       CornerRadius="15"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="changeHistoryTransactionsAllTime"
+                                              NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Margin="15, 0, 15, 0"
+                                 Padding="15">
+                        <Label Margin="0,0,0,5"
+                               FontSize="24"
+                               FontAttributes="Bold">Seluruh Waktu</Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="allTimeDate"
+                                   FontSize="18"
+                                   Text="Sampai tanggal "/>
+                            <Label x:Name="todayDateAllTime"
+                                    FontSize="18"/>
                         </StackLayout>
-                    </RadioButton.Content>
-                </RadioButton>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </Grid>
         <Grid Grid.Column="1"

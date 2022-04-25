@@ -21,7 +21,10 @@ namespace Cakrawala.Views
         public string HistoryId
         {
             get { return historyId; }
-            set { historyId = value; }
+            set { historyId = value; 
+                Debug.WriteLine("[SETTER]");
+                Debug.WriteLine(HistoryId);
+            }
         }
 
         public DetailHistoryPage()
@@ -32,7 +35,11 @@ namespace Cakrawala.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            Debug.WriteLine("[BEFORE]");
+            Debug.WriteLine(HistoryId);
             RetrieveUserData();
+            Debug.WriteLine("[AFTER]");
+            Debug.WriteLine(HistoryId);
         }
 
         public void RetrieveUserData()

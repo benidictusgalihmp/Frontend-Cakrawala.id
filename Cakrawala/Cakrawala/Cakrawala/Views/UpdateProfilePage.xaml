@@ -44,7 +44,7 @@
                     <StackLayout
                     VerticalOptions="Center">
                         <Label
-                            FontSize="Medium">Username*</Label>
+                            FontSize="Medium">Display name*</Label>
                         <Entry x:Name ="entryUpdateUsername"
                                Placeholder="Username"
                                HeightRequest="40"
@@ -55,7 +55,7 @@
                         <Label x:Name="updateUsernameErrMsg"
                             FontSize="Micro"
                             TextColor="#FF6600"></Label>
-                        <Button Text="Simpan Username"
+                        <Button Text="Simpan Display Name"
                                 FontSize="Medium"
                                 Margin="0,25,0,0"
                                 HeightRequest="60"

@@ -64,6 +64,7 @@ namespace Cakrawala.Views
             if (newUsername.Length > 25)
             {
                 updateUsernameErrMsg.Text = "Panjang username tidak boleh melebihi 25 karakter";
+                return;
             } else if (!newUsername.All(char.IsLetterOrDigit) ||
                     newUsername.All(char.IsWhiteSpace))
             {

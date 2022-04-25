@@ -1,4 +1,5 @@
 ﻿using Cakrawala.Models;
+using MvvmHelpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,11 +16,13 @@ namespace Cakrawala.Views
     public partial class HistoryPage : ContentPage
     {
         public static List<TransactionHistory> transListView { get; set; }
+        public ObservableRangeCollection<Grouping<DateTime, TransactionHistory>> transHistoryGroup { get; set; }
         public int lenTransListView;
 
         public HistoryPage()
         {
             InitializeComponent();
+            transHistoryGroup = new ObservableRangeCollection<Grouping<DateTime, TransactionHistory>>();
         }
 
         protected override void OnAppearing()
@@ -34,10 +37,8 @@ namespace Cakrawala.Views
             string userId = Application.Current.Properties["userId"].ToString();
 
             List<TransferHistory> listTransferHistory = await App.transactionHistoryService.TransferHistoryAsync(userId);
-            // Debug.WriteLine("[TRANSFER HISTORY]", listTransferHistory[0].transactionId);
 
             List<TopupHistory> listTopupHistory = await App.transactionHistoryService.TopupHistoryAsync(userId);
-            // Debug.WriteLine("[TOPUP HISTORY]", listTopupHistory);
 
             // renew data list transaction from backend
             HistoryPage.transListView = new List<TransactionHistory>();
@@ -95,6 +96,7 @@ namespace Cakrawala.Views
                     topupHistory.status));
                 idTrans += 1;
             }
+            HistoryPage.transListView.OrderBy(x => x.createdDate);
             HistoryListView.ItemsSource = HistoryPage.transListView;
         }
 
@@ -110,14 +112,7 @@ namespace Cakrawala.Views
             todayDateMonth.Text = todayDate.ToString("dd MMM yyyy");
             oneMonthDate.Text = todayDate.AddMonths(-1).ToString("dd MMM yyyy");
 
-            // radio button custom date
-            DatePickerFrom.Date = todayDate;
-            DatePickerFrom.MinimumDate = todayDate.AddMonths(-6).Date;
-            DatePickerFrom.MaximumDate = todayDate.Date;
-
-            DatePickerTo.Date = todayDate;
-            DatePickerTo.MinimumDate = todayDate.AddMonths(-6).Date;
-            DatePickerTo.MaximumDate = todayDate.Date;
+            todayDateAllTime.Text = todayDate.ToString("dd MMM yyyy");
         }
 
         private async void DetailHistoryPage_Tapped(object sender, ItemTappedEventArgs e)
@@ -126,6 +121,81 @@ namespace Cakrawala.Views
             Debug.WriteLine("[TRANSAKSI ID]");
             Debug.WriteLine(transaksiId);
             await Shell.Current.GoToAsync($"//detailHistory?historyId={transaksiId}");
+        }
+
+        public void changeHistoryTransactionsWeekAgo(object sender, EventArgs args)
+        {
+            var todayDate = DateTime.Today;
+
+            // radio button week ago
+            DateTime from = todayDate.AddDays(-7);
+            DateTime to = todayDate;
+
+            List<TransactionHistory> list = new List<TransactionHistory>();
+            list = GetListTransactionbyDate(from, to);
+            if(list.Count > 0)
+            {
+                HistoryListView.ItemsSource = GetListTransactionbyDate(from, to);
+            } 
+            else
+            {
+                Debug.WriteLine("Listview is null or empty");
+            }
+
+            Debug.WriteLine("Week ago");
+        }
+
+        public void changeHistoryTransactionsMonthAgo(object sender, EventArgs args)
+        {
+            var todayDate = DateTime.Today;
+
+            DateTime from = todayDate.AddMonths(-1);
+            DateTime to = todayDate;
+
+            List<TransactionHistory> list = new List<TransactionHistory>();
+            list = GetListTransactionbyDate(from, to);
+            if (list.Count > 0)
+            {
+                HistoryListView.ItemsSource = GetListTransactionbyDate(from, to);
+            }
+            else
+            {
+                Debug.WriteLine("Listview is null or empty");
+            }
+
+            Debug.WriteLine("Month ago");
+        }
+
+        public void changeHistoryTransactionsAllTime(object sender, EventArgs args)
+        {
+            HistoryListView.ItemsSource = HistoryPage.transListView;
+        }
+
+        private List<TransactionHistory> GetListTransactionbyDate(DateTime from, DateTime to)
+        {
+            List<TransactionHistory> list = new List<TransactionHistory>();
+
+            foreach (TransactionHistory transactionHistory in HistoryPage.transListView)
+            {
+                int dateFromState = DateTime.Compare(from, transactionHistory.createdDate);
+                int dateToState = DateTime.Compare(to, transactionHistory.createdDate);
+                Debug.Write("DATE: ");
+                Debug.Write(from);
+                Debug.WriteLine(to);
+                Debug.WriteLine(transactionHistory.createdDate);
+
+                Debug.Write("STATE: ");
+                Debug.Write(dateFromState);
+                Debug.WriteLine(dateToState);
+
+                if (dateFromState > 0 &&
+                    dateToState < 0)
+                {
+                    list.Add(transactionHistory);
+                }
+            }
+
+            return list;
         }
     }
 }
