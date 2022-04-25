@@ -46,12 +46,14 @@
                         <Label
                             FontSize="Medium">Display name*</Label>
                         <Entry x:Name ="entryUpdateUsername"
+                               TextChanged="entryUpdateUsername_TextChanged"
                                Placeholder="Username"
                                HeightRequest="40"
                                Margin="0,0,0,25"
                                BackgroundColor="White"
                                TextColor="#082E58"
-                               PlaceholderColor="#5F83AA"/>
+                               PlaceholderColor="#5F83AA"
+                               MaxLength="25"/>
                         <Label x:Name="updateUsernameErrMsg"
                             FontSize="Micro"
                             TextColor="#FF6600"></Label>
@@ -76,6 +78,7 @@
                         <Label
                             FontSize="Medium">Password lama*</Label>
                         <Entry x:Name ="entryUpdateOldPassword"
+                               TextChanged="entryUpdatePassword_TextChanged"
                                Placeholder="Masukkan password lama" 
                                IsPassword="True"
                                HeightRequest="40"
@@ -86,6 +89,7 @@
                         <Label
                             FontSize="Medium">Password baru*</Label>
                         <Entry x:Name ="entryUpdateNewPassword"
+                               TextChanged="entryUpdatePassword_TextChanged"
                                Placeholder="Masukkan password baru" 
                                IsPassword="True"
                                HeightRequest="40"
@@ -96,6 +100,7 @@
                         <Label
                             FontSize="Medium">Konfirmasi password</Label>
                         <Entry x:Name ="entryUpdateConfirmPassword"
+                               TextChanged="entryUpdatePassword_TextChanged"
                                Placeholder="Konfirmasi password" 
                                IsPassword="True"
                                HeightRequest="40"

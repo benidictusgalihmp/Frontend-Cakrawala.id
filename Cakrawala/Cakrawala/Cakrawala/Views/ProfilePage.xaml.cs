@@ -29,8 +29,9 @@ namespace Cakrawala.Views
             string userId = Application.Current.Properties["userId"].ToString();
 
             User userData = await App.profileService.ViewProfileAsync(userId);
+            photoProfile.Source = "profile-pic-dummy.jpg";
             namaProfile.Text = userData.displayName != "" ? userData.displayName : "{Name}";
-            usernameProfile.Text = userData.userName != "" ? userData.userName : "{User Name}";
+            usernameProfile.Text = userData.userName != "" ? "#" + userData.userName : "{User Name}";
             emailProfile.Text = userData.email != "" ? userData.email : "{Email}";
         }
 

@@ -41,22 +41,20 @@
                 Padding="35,25,35,25"
                 CornerRadius="8"
                 BackgroundColor="#38567A">
-                <StackLayout
-                    VerticalOptions="Center">
-                    <Label 
-                        x:Name ="namaProfile"
-                        HorizontalTextAlignment="Center"
-                        Margin="0,0,0,10"
-                        FontSize="Large"
-                        FontAttributes="Bold">Nama</Label>
-                    <Label
-                        x:Name ="usernameProfile"
-                        HorizontalTextAlignment="Center"
-                        FontSize="Medium">@username</Label>
-                    <Label
-                        x:Name ="emailProfile"
-                        HorizontalTextAlignment="Center"
-                        FontSize="Medium">email@email.com</Label>
+                <StackLayout Orientation="Horizontal">
+                    <Image x:Name="photoProfile"
+                           Aspect="AspectFit"/>
+                    <StackLayout Margin="20,0,0,0"
+                        HorizontalOptions="StartAndExpand">
+                        <Label x:Name ="namaProfile"
+                               Margin="0,0,0,15"
+                               FontSize="Large"
+                               FontAttributes="Bold">Nama</Label>
+                        <Label x:Name ="usernameProfile"
+                               FontSize="Medium">@username</Label>
+                        <Label x:Name ="emailProfile"
+                               FontSize="Medium">email@email.com</Label>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </Grid>

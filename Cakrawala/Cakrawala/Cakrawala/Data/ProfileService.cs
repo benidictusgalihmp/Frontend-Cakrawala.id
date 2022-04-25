@@ -79,13 +79,13 @@ namespace Cakrawala.Data
             return output;
         }
 
-        public async Task<bool> UpdatePasswordAsync(
+        public async Task<int> UpdatePasswordAsync(
             string userId,
             string oldUpdatePassword,
             string newUpdatePassword)
         {
             Uri uri = new Uri(string.Format(Constants.RestUrl + "users/" + userId, string.Empty));
-            bool output = false;
+            int output = 0;
 
             try
             {
@@ -102,11 +102,17 @@ namespace Cakrawala.Data
                 if (response.IsSuccessStatusCode)
                 {
                     Debug.WriteLine("Success Change Password");
-                    output = true;
+                    output = 1;
                 } else
                 {
-                    Debug.WriteLine(response.ToString());
+                    string responseResult = response.Content.ReadAsStringAsync().Result;
+                    bool oldPasswordCorrect = responseResult.Contains("Incorrect old password");
+
+                    Debug.WriteLine("[RESPONSES]");
+                    Debug.WriteLine(oldPasswordCorrect);
                     Debug.WriteLine("Gagal mengubah password");
+                    output = oldPasswordCorrect ? 2 : 0;
+
                     return output;
                 }
 
