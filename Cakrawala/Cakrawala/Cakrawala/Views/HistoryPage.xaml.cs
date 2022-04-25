@@ -16,13 +16,12 @@ namespace Cakrawala.Views
     public partial class HistoryPage : ContentPage
     {
         public static List<TransactionHistory> transListView { get; set; }
-        public ObservableRangeCollection<Grouping<DateTime, TransactionHistory>> transHistoryGroup { get; set; }
+        public ObservableRangeCollection<Grouping<string, TransactionHistory>> transHistoryGroup { get; set; } = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
         public int lenTransListView;
 
         public HistoryPage()
         {
             InitializeComponent();
-            transHistoryGroup = new ObservableRangeCollection<Grouping<DateTime, TransactionHistory>>();
         }
 
         protected override void OnAppearing()
@@ -96,8 +95,21 @@ namespace Cakrawala.Views
                     topupHistory.status));
                 idTrans += 1;
             }
-            HistoryPage.transListView.OrderBy(x => x.createdDate);
-            HistoryListView.ItemsSource = HistoryPage.transListView;
+            var items = from transHistory in HistoryPage.transListView
+                        orderby transHistory.headerDate
+                        group transHistory by transHistory.headerDate into transGroup
+                        select new Grouping<string, TransactionHistory>(transGroup.Key, transGroup);
+
+            Debug.WriteLine("[LISTVIEW GROUPING]");
+            int i = 0;
+            foreach (var item in items)
+            {
+                Debug.WriteLine(item.Key);
+                transHistoryGroup.Add(item);
+                i++;
+            }
+
+            HistoryListView.ItemsSource = transHistoryGroup;
         }
 
         private void resetState()
@@ -131,7 +143,7 @@ namespace Cakrawala.Views
             DateTime from = todayDate.AddDays(-7);
             DateTime to = todayDate;
 
-            List<TransactionHistory> list = new List<TransactionHistory>();
+            ObservableRangeCollection<Grouping<string, TransactionHistory>> list = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
             list = GetListTransactionbyDate(from, to);
             if(list.Count > 0)
             {
@@ -152,7 +164,7 @@ namespace Cakrawala.Views
             DateTime from = todayDate.AddMonths(-1);
             DateTime to = todayDate;
 
-            List<TransactionHistory> list = new List<TransactionHistory>();
+            ObservableRangeCollection<Grouping<string, TransactionHistory>> list = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
             list = GetListTransactionbyDate(from, to);
             if (list.Count > 0)
             {
@@ -168,34 +180,39 @@ namespace Cakrawala.Views
 
         public void changeHistoryTransactionsAllTime(object sender, EventArgs args)
         {
-            HistoryListView.ItemsSource = HistoryPage.transListView;
+            HistoryListView.ItemsSource = transHistoryGroup;
         }
 
-        private List<TransactionHistory> GetListTransactionbyDate(DateTime from, DateTime to)
+        private ObservableRangeCollection<Grouping<string, TransactionHistory>> GetListTransactionbyDate(DateTime from, DateTime to)
         {
             List<TransactionHistory> list = new List<TransactionHistory>();
-
+            ObservableRangeCollection<Grouping<string, TransactionHistory>> transHistory = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
             foreach (TransactionHistory transactionHistory in HistoryPage.transListView)
             {
-                int dateFromState = DateTime.Compare(from, transactionHistory.createdDate);
-                int dateToState = DateTime.Compare(to, transactionHistory.createdDate);
-                Debug.Write("DATE: ");
-                Debug.Write(from);
-                Debug.WriteLine(to);
-                Debug.WriteLine(transactionHistory.createdDate);
+                int dateFromState = DateTime.Compare(transactionHistory.createdDate, from);
+                int dateToState = DateTime.Compare(transactionHistory.createdDate, to);
 
-                Debug.Write("STATE: ");
-                Debug.Write(dateFromState);
-                Debug.WriteLine(dateToState);
-
-                if (dateFromState > 0 &&
-                    dateToState < 0)
+                if (dateFromState >= 0 &&
+                    dateToState <= 0)
                 {
                     list.Add(transactionHistory);
                 }
             }
 
-            return list;
+            var items = from transHistoryGet in list
+                        orderby transHistoryGet.headerDate
+                        group transHistoryGet by transHistoryGet.headerDate into transGroupGet
+                        select new Grouping<string, TransactionHistory>(transGroupGet.Key, transGroupGet);
+
+            int i = 0;
+            foreach (var item in items)
+            {
+                Debug.WriteLine(item.Key);
+                transHistory.Add(item);
+                i++;
+            }
+
+            return transHistory;
         }
     }
 }

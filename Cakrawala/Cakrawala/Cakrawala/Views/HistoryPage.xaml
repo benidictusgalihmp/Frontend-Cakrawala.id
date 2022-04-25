@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cakrawala.Views.HistoryPage"
              BackgroundColor="#D1DFEF">
@@ -107,14 +109,11 @@
             <Frame BackgroundColor="#38567A"
                    CornerRadius="15">
                 <ListView x:Name="HistoryListView"
-                          SeparatorColor="White"
+                          SeparatorVisibility="None"
+                          IsGroupingEnabled="True"
+                          GroupShortNameBinding="{Binding Key}"
+                          GroupDisplayBinding="{Binding Key}"
                           ItemTapped="DetailHistoryPage_Tapped">
-                    <ListView.GroupHeaderTemplate>
-                        <DataTemplate>
-                            <TextCell TextColor="White"
-                                      Text="{Binding headerDate}"/>
-                        </DataTemplate>
-                    </ListView.GroupHeaderTemplate>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
