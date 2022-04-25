@@ -30,13 +30,13 @@
                     <StackLayout Orientation="Vertical">
                         <Label>Username</Label>
                         <Frame Padding="0" CornerRadius="7">
-                            <Entry x:Name="username" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                            <Entry MaxLength="25" x:Name="username" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
                         </Frame>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
                         <Label>Nama Asli</Label>
                         <Frame Padding="0" CornerRadius="7">
-                            <Entry x:Name="name" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
+                            <Entry MaxLength="25" x:Name="name" WidthRequest="300" BackgroundColor="White" TextColor="Black"/>
                         </Frame>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">

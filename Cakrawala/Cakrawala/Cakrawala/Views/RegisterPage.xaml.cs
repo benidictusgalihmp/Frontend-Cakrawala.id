@@ -25,7 +25,11 @@ namespace Cakrawala.Views
 
         private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
-            if (username.Text == "" || name.Text == "" || email.Text == "" || password.Text == "" || password.Text != retypePassword.Text)
+            if (username.Text == string.Empty || 
+                name.Text == string.Empty || 
+                email.Text == string.Empty || 
+                password.Text == string.Empty || 
+                password.Text != retypePassword.Text)
             {
                 errorText.Text = "Tolong isi semua baris yang ada";
                 return;
@@ -50,7 +54,12 @@ namespace Cakrawala.Views
             if (password.Text != retypePassword.Text)
             {
                 errorText.Text = "Password dan Konfirmasi Password tidak sama";
-            } else
+            }
+            else if (password.Text.Length < 8)
+            {
+                errorText.Text = "Password harus 8 karakter atau lebih";
+            }
+            else
             {
                 errorText.Text = String.Empty;
             }
