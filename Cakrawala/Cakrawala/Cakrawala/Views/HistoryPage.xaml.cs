@@ -100,21 +100,21 @@ namespace Cakrawala.Views
                         group transHistory by transHistory.headerDate into transGroup
                         select new Grouping<string, TransactionHistory>(transGroup.Key, transGroup);
 
-            Debug.WriteLine("[LISTVIEW GROUPING]");
             int i = 0;
             foreach (var item in items)
             {
-                Debug.WriteLine(item.Key);
                 transHistoryGroup.Add(item);
                 i++;
             }
+            Debug.WriteLine("[LISTVIEW KEY]");
+            Debug.WriteLine(transHistoryGroup[0].Key);
 
             HistoryListView.ItemsSource = transHistoryGroup;
         }
 
         private void resetState()
         {
-            var todayDate = DateTime.Today;
+            var todayDate = DateTime.Now;
 
             // radio button week ago
             todayDateWeek.Text = todayDate.ToString("dd MMM yyyy");
@@ -137,7 +137,7 @@ namespace Cakrawala.Views
 
         public void changeHistoryTransactionsWeekAgo(object sender, EventArgs args)
         {
-            var todayDate = DateTime.Today;
+            var todayDate = DateTime.Now;
 
             // radio button week ago
             DateTime from = todayDate.AddDays(-7);
@@ -159,7 +159,7 @@ namespace Cakrawala.Views
 
         public void changeHistoryTransactionsMonthAgo(object sender, EventArgs args)
         {
-            var todayDate = DateTime.Today;
+            var todayDate = DateTime.Now;
 
             DateTime from = todayDate.AddMonths(-1);
             DateTime to = todayDate;
@@ -187,10 +187,19 @@ namespace Cakrawala.Views
         {
             List<TransactionHistory> list = new List<TransactionHistory>();
             ObservableRangeCollection<Grouping<string, TransactionHistory>> transHistory = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
+
+            Debug.WriteLine("[DATE BASELINE]");
+            Debug.WriteLine(from);
+            Debug.WriteLine(to);
+            Debug.WriteLine("[LISTVIEW DATE]");
             foreach (TransactionHistory transactionHistory in HistoryPage.transListView)
             {
                 int dateFromState = DateTime.Compare(transactionHistory.createdDate, from);
                 int dateToState = DateTime.Compare(transactionHistory.createdDate, to);
+
+                Debug.WriteLine(transactionHistory.createdDate);
+                Debug.WriteLine(dateFromState);
+                Debug.WriteLine(dateToState);
 
                 if (dateFromState >= 0 &&
                     dateToState <= 0)

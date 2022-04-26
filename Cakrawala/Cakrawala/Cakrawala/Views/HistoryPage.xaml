@@ -111,9 +111,15 @@
                 <ListView x:Name="HistoryListView"
                           SeparatorVisibility="None"
                           IsGroupingEnabled="True"
-                          GroupShortNameBinding="{Binding Key}"
+                          HasUnevenRows="True"
                           GroupDisplayBinding="{Binding Key}"
                           ItemTapped="DetailHistoryPage_Tapped">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <TextCell TextColor="White"
+                                      Text="{Binding Key}"/>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
