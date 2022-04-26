@@ -55,7 +55,7 @@
                                     BackgroundColor="White" 
                                     TextColor="Black" 
                                     Keyboard="Numeric"
-                                
+                                    MaxLength="12"
                                 />
                             </StackLayout>
                         </Frame>
