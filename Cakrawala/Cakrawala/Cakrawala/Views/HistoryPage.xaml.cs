@@ -16,7 +16,7 @@ namespace Cakrawala.Views
     public partial class HistoryPage : ContentPage
     {
         public static List<TransactionHistory> transListView { get; set; }
-        public ObservableRangeCollection<Grouping<string, TransactionHistory>> transHistoryGroup { get; set; } = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
+        public ObservableRangeCollection<Grouping<string, TransactionHistory>> transHistoryGroup { get; set; }
         public int lenTransListView;
 
         public HistoryPage()
@@ -33,6 +33,8 @@ namespace Cakrawala.Views
 
         public async void RetrieveUserData()
         {
+            transHistoryGroup = new ObservableRangeCollection<Grouping<string, TransactionHistory>>();
+
             string userId = Application.Current.Properties["userId"].ToString();
 
             List<TransferHistory> listTransferHistory = await App.transactionHistoryService.TransferHistoryAsync(userId);
