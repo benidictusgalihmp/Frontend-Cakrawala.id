@@ -24,6 +24,7 @@ namespace Cakrawala.Views
             set { historyId = value; 
                 Debug.WriteLine("[SETTER]");
                 Debug.WriteLine(HistoryId);
+                RetrieveUserData();
             }
         }
 
@@ -37,7 +38,7 @@ namespace Cakrawala.Views
             base.OnAppearing();
             Debug.WriteLine("[BEFORE]");
             Debug.WriteLine(HistoryId);
-            RetrieveUserData();
+            // RetrieveUserData();
             Debug.WriteLine("[AFTER]");
             Debug.WriteLine(HistoryId);
         }
