@@ -28,8 +28,8 @@ namespace Cakrawala.Models
                             TransferStatus? status)
         { 
             this.topupId = topupId;
-            this.createdAt = createdAt;
-            this.updatedAt = updatedAt;
+            this.createdAt = createdAt.ToLocalTime();
+            this.updatedAt = updatedAt.ToLocalTime();
             this.method = method;
             this.status = status != null ? status : TransferStatus.SUCCESS;
             this.value = value;
@@ -47,8 +47,8 @@ namespace Cakrawala.Models
         public TopupHistory()
         {
             this.topupId = "";
-            this.createdAt = new DateTime();
-            this.updatedAt = new DateTime();
+            this.createdAt = new DateTime().ToLocalTime();
+            this.updatedAt = new DateTime().ToLocalTime();
             this.method = "";
             this.status = TransferStatus.PENDING;
             this.value = 0;

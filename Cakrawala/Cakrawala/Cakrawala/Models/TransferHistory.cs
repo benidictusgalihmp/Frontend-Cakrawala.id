@@ -31,8 +31,8 @@ namespace Cakrawala.Models
         { 
             this.status = status;
             this.transactionId = transactionId;
-            this.createdAt = createdAt; 
-            this.updatedAt = updatedAt;
+            this.createdAt = createdAt.ToLocalTime(); 
+            this.updatedAt = updatedAt.ToLocalTime();
             this.from = from.ToString();
             this.to = to.ToString();
             this.baseValue = baseValue;
@@ -42,8 +42,8 @@ namespace Cakrawala.Models
         {
             this.status = TransferStatus.PENDING;
             this.transactionId = "";
-            this.createdAt = new DateTime();
-            this.updatedAt = new DateTime();
+            this.createdAt = new DateTime().ToLocalTime();
+            this.updatedAt = new DateTime().ToLocalTime();
             this.from = "";
             this.to = "";
             this.baseValue = 0;

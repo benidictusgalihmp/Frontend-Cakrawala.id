@@ -108,8 +108,8 @@ namespace Cakrawala.Views
                 transHistoryGroup.Add(item);
                 i++;
             }
-            Debug.WriteLine("[LISTVIEW KEY]");
-            Debug.WriteLine(transHistoryGroup[0].Key);
+            //Debug.WriteLine("[LISTVIEW KEY]");
+            //Debug.WriteLine(transHistoryGroup[0].Key);
 
             HistoryListView.ItemsSource = transHistoryGroup;
         }

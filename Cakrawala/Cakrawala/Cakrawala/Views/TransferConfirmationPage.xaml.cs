@@ -79,7 +79,7 @@ namespace Cakrawala.Views
             Debug.WriteLine($"recvId: {receiverId}, nominal: {nominal}");
             if (res == null)
             {
-                await DisplayAlert("Error", "Terdapat kesalahan dalam melakukan transfer", "Ok");
+                await DisplayAlert("Error", "Maaf, saldo Anda tidak cukup", "Ok");
             } else
             {
                 await DisplayAlert("Sukses", $"Berhasil transfer Rp{res.Amount} ke pengguna dengan username: \"{res.To.UserName}\"", "Ok");
