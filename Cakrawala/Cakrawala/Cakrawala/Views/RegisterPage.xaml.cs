@@ -28,7 +28,11 @@ namespace Cakrawala.Views
             if (username.Text == string.Empty || 
                 name.Text == string.Empty || 
                 email.Text == string.Empty || 
-                password.Text == string.Empty || 
+                password.Text == string.Empty ||
+                username.Text == null ||
+                name.Text == null ||
+                email.Text == null ||
+                password.Text == null ||
                 password.Text != retypePassword.Text)
             {
                 errorText.Text = "Tolong isi semua baris yang ada";
