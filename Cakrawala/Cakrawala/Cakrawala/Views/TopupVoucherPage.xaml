@@ -54,7 +54,6 @@
                                     WidthRequest="300" 
                                     BackgroundColor="White" 
                                     TextColor="Black" 
-                                    Keyboard="Numeric"
                                     MaxLength="12"
                                 />
                             </StackLayout>
